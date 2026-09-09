@@ -649,29 +649,29 @@
       </div>
     </section>
 
-    <!-- ===== ADMIN PANEL ===== -->
+    <!-- ===== ADMIN PANEL (LOCAL STORAGE) ===== -->
     <section class="admin-panel" id="adminPanel" hidden>
       <div class="container">
         <div class="admin-top">
-          <div><span class="eyebrow">Gestion avancée</span><h1>Tableau de bord</h1></div>
-          <div><p>Gérez produits, catégories, promotions et commandes depuis un seul endroit.</p><a class="button ghost" href="#accueil">Retour au site <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+          <div><span class="eyebrow">Gestion locale</span><h1>Tableau de bord</h1></div>
+          <div><p>Modifiez produits, catégories et suivez les commandes. Tout est sauvegardé dans votre navigateur.</p><a class="button ghost" href="#accueil">Retour au site <svg class="icon"><use href="#i-arrow"/></svg></a></div>
         </div>
 
         <div class="admin-auth" id="adminAuthBox">
           <div style="width: 60px; height: 60px; background: var(--ice); border-radius: 50%; display: grid; place-items: center; margin: 0 auto 20px; color: var(--blue);"><svg class="icon" style="width: 24px; height: 24px;"><use href="#i-lock"/></svg></div>
-          <h2>Espace Administrateur</h2>
-          <p>Connectez-vous pour accéder au panneau de contrôle complet.</p>
+          <h2>Accès Administrateur</h2>
+          <p>Entrez le mot de passe pour accéder au panneau de contrôle.</p>
           <form id="adminLoginForm">
-            <input class="field" type="email" name="email" placeholder="Adresse e-mail" autocomplete="username" required>
-            <input class="field" type="password" name="password" placeholder="Mot de passe" autocomplete="current-password" required>
-            <button class="button aqua" type="submit" style="width:100%; margin-top: 10px;">Se connecter <svg class="icon"><use href="#i-arrow"/></svg></button>
+            <input class="field" type="password" name="password" placeholder="Mot de passe admin" required>
+            <button class="button aqua" type="submit" style="width:100%; margin-top: 10px;">Entrer <svg class="icon"><use href="#i-arrow"/></svg></button>
           </form>
           <p class="admin-auth-message" id="adminAuthMessage"></p>
+          <p style="margin-top:15px; font-size:.7rem; color:#999;">Mot de passe par défaut : <strong>admin123</strong></p>
         </div>
 
         <div id="adminDashboard" hidden>
           <div class="admin-userbar">
-            <span>Bienvenue, <strong id="adminEmail">Admin</strong></span>
+            <span>Connecté en mode local</span>
             <div style="display:flex; gap:15px; align-items:center;">
               <button class="nav-icon" style="width:38px; height:38px; background:#fff;" id="adminOrderBell" title="Voir les nouvelles commandes"><svg class="icon"><use href="#i-bag"/></svg><span class="order-badge" id="adminOrderBadge">0</span></button>
               <button id="adminLogout" type="button">Déconnexion</button>
@@ -696,7 +696,7 @@
           <div class="admin-section active" id="tabProducts">
             <div class="admin-card">
               <h2><svg class="icon"><use href="#i-grid"/></svg> Catalogue actuel <span id="adminProductCount" style="color:var(--muted); font-size:.8rem;"></span></h2>
-              <p style="margin:-8px 0 15px; color:var(--muted); font-size:.72rem;">Modifiez n'importe quel produit (même les anciens), ajoutez une promotion ou supprimez-le.</p>
+              <p style="margin:-8px 0 15px; color:var(--muted); font-size:.72rem;">Modifiez n'importe quel produit, ajoutez une promotion ou supprimez-le.</p>
               <div class="admin-list" id="adminProductList"></div>
             </div>
           </div>
@@ -782,7 +782,7 @@
 
   <div class="overlay" id="cartOverlay" role="dialog" aria-modal="true" aria-label="Votre demande"><aside class="cart-drawer"><div class="drawer-head"><h2>Votre demande <span id="drawerCount">(0)</span></h2><button class="close" data-close="cartOverlay" aria-label="Fermer"><svg class="icon"><use href="#i-close"/></svg></button></div><div class="cart-items" id="cartItems"></div><div class="drawer-foot"><div class="total-line"><span>Total estimé</span><strong id="cartTotal">0 DA</strong></div><button class="button aqua" id="sendCart" style="width:100%">Passer la commande <svg class="icon"><use href="#i-arrow"/></svg></button></div></aside></div>
 
-  <div class="overlay" id="orderOverlay" role="dialog" aria-modal="true" aria-label="Formulaire de commande"><div class="modal order-modal"><button class="close" data-close="orderOverlay" aria-label="Fermer"><svg class="icon"><use href="#i-close"/></svg></button><h2>Finaliser votre commande</h2><p>Remplissez vos informations. La commande est enregistrée puis envoyée automatiquement sur WhatsApp.</p><form class="order-grid" id="orderForm"><input class="field" name="firstName" placeholder="Prénom *" required><input class="field" name="lastName" placeholder="Nom *" required><input class="field" name="phone" type="tel" placeholder="Numéro de téléphone *" required><select class="field" name="wilaya" id="wilayaSelect" required><option value="">Choisir la wilaya *</option></select><select class="field full" name="commune" id="communeSelect" required disabled><option value="">Choisir d'abord la wilaya</option></select><div class="delivery-choice"><input type="radio" id="deliveryOffice" name="delivery" value="Retrait au bureau" required><label for="deliveryOffice"><svg class="icon"><use href="#i-building"/></svg> Retrait au bureau</label><input type="radio" id="deliveryHome" name="delivery" value="Livraison à domicile"><label for="deliveryHome"><svg class="icon"><use href="#i-home"/></svg> Livraison à domicile</label></div><textarea class="field full" name="note" placeholder="Note supplémentaire (optionnel)"></textarea><div class="order-summary" id="orderSummary"></div><button class="button aqua full" type="submit">Confirmer et envoyer sur WhatsApp <svg class="icon"><use href="#i-message"/></svg></button></form></div></div>
+  <div class="overlay" id="orderOverlay" role="dialog" aria-modal="true" aria-label="Formulaire de commande"><div class="modal order-modal"><button class="close" data-close="orderOverlay" aria-label="Fermer"><svg class="icon"><use href="#i-close"/></svg></button><h2>Finaliser votre commande</h2><p>Remplissez vos informations. La commande est enregistrée localement puis envoyée automatiquement sur WhatsApp.</p><form class="order-grid" id="orderForm"><input class="field" name="firstName" placeholder="Prénom *" required><input class="field" name="lastName" placeholder="Nom *" required><input class="field" name="phone" type="tel" placeholder="Numéro de téléphone *" required><select class="field" name="wilaya" id="wilayaSelect" required><option value="">Choisir la wilaya *</option></select><select class="field full" name="commune" id="communeSelect" required disabled><option value="">Choisir d'abord la wilaya</option></select><div class="delivery-choice"><input type="radio" id="deliveryOffice" name="delivery" value="Retrait au bureau" required><label for="deliveryOffice"><svg class="icon"><use href="#i-building"/></svg> Retrait au bureau</label><input type="radio" id="deliveryHome" name="delivery" value="Livraison à domicile"><label for="deliveryHome"><svg class="icon"><use href="#i-home"/></svg> Livraison à domicile</label></div><textarea class="field full" name="note" placeholder="Note supplémentaire (optionnel)"></textarea><div class="order-summary" id="orderSummary"></div><button class="button aqua full" type="submit">Confirmer et envoyer sur WhatsApp <svg class="icon"><use href="#i-message"/></svg></button></form></div></div>
 
   <!-- Modal édition produit (admin) -->
   <div class="overlay" id="editOverlay" role="dialog" aria-modal="true" aria-label="Modifier le produit"><div class="modal order-modal"><button class="close" data-close="editOverlay" aria-label="Fermer"><svg class="icon"><use href="#i-close"/></svg></button><h2>Modifier le produit</h2><p>Changez le prix, ajoutez une promotion (ancien prix + badge), l'image ou toute autre information.</p><form class="order-grid" id="editForm">
@@ -848,9 +848,6 @@
     <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></symbol>
   </svg>
 
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
   <script>
     /* ========================= CONFIG ========================= */
     const CONFIG = {
@@ -860,35 +857,11 @@
       facebook: "https://www.facebook.com/share/1D3sCRmcb1/",
       tiktok: "https://www.tiktok.com/@daddi.piscine?_r=1&_t=ZN-99axUIQ8xja",
       locationsUrl: "https://raw.githubusercontent.com/islam-re/Algeria-wilayas/main/json/wilaya-commune/wilaya-commune.json",
-      currency: "DA"
+      currency: "DA",
+      adminPassword: "admin123" // ← غيّر هذا الكلمة السرية حسب رغبتك
     };
 
-    /* ========================= FIREBASE ========================= */
-    const FIREBASE_CONFIG = {
-      apiKey: "AIzaSyBurMSnkS9dk0iJaotj6UU2pvnC9efGzSQ",
-      authDomain: "tour-expert-6c580.firebaseapp.com",
-      databaseURL: "https://tour-expert-6c580-default-rtdb.firebaseio.com",
-      projectId: "tour-expert-6c580",
-      storageBucket: "tour-expert-6c580.firebasestorage.app",
-      messagingSenderId: "233731555338",
-      appId: "1:233731555338:web:557bac09946c4fd5e35ff3",
-      measurementId: "G-YQ46NNR13B"
-    };
-    let firebaseReady = false, firebaseAuth = null, firebaseDatabase = null;
-    let dbProductsRef = null, dbOrdersRef = null, dbCategoriesRef = null;
-    try {
-      if (window.firebase) {
-        firebase.initializeApp(FIREBASE_CONFIG);
-        firebaseAuth = firebase.auth();
-        firebaseDatabase = firebase.database();
-        dbProductsRef = firebaseDatabase.ref("products");
-        dbOrdersRef = firebaseDatabase.ref("orders");
-        dbCategoriesRef = firebaseDatabase.ref("categoriesConfig");
-        firebaseReady = true;
-      }
-    } catch (error) { console.error("Firebase initialization failed", error); }
-
-    /* ========================= DONNÉES ========================= */
+    /* ========================= DONNÉES PAR DÉFAUT ========================= */
     const defaultProducts = [
       { id: 1, name: "Pompe de filtration ProFlow 1.5 CV", category: "Pompes", brand: "Hayward", reference: "PF-1500", price: 68500, oldPrice: null, image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=85", description: "Une pompe silencieuse et endurante pour une circulation d'eau régulière.", stock: "En stock", badge: "Best seller", featured: true, popularity: 98, specs: [["Puissance", "1.5 CV"], ["Débit", "18 m³/h"], ["Garantie", "2 ans"], ["Usage", "Piscine familiale"]] },
       { id: 2, name: "Filtre à sable ClearWater 600", category: "Filtration", brand: "AstralPool", reference: "CW-600", price: 79200, oldPrice: 87500, image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=85", description: "La filtration haute performance pour une eau claire et facile à entretenir.", stock: "En stock", badge: "-10%", featured: true, popularity: 92, specs: [["Cuve", "Polyéthylène"], ["Diamètre", "600 mm"], ["Vanne", "6 voies"], ["Débit", "14 m³/h"]] },
@@ -921,15 +894,17 @@
     ];
 
     let products = [];
-    let firebaseProducts = [];
-    let firebaseOrders = [];
+    let customProducts = [];
     let productEdits = {};
     let hiddenProducts = [];
-    let adminUser = null;
-    let adminAuthorized = false;
+    let orders = [];
+    let adminLoggedIn = false;
 
+    // Chargement depuis localStorage
+    try { customProducts = JSON.parse(localStorage.getItem("daddi_custom_products") || "[]"); } catch { customProducts = []; }
     try { productEdits = JSON.parse(localStorage.getItem("daddi_product_edits") || "{}"); } catch { productEdits = {}; }
     try { hiddenProducts = JSON.parse(localStorage.getItem("daddi_hidden_products") || "[]"); } catch { hiddenProducts = []; }
+    try { orders = JSON.parse(localStorage.getItem("daddi_orders") || "[]"); } catch { orders = []; }
     try { const savedCats = JSON.parse(localStorage.getItem("daddi_categories") || "null"); if (Array.isArray(savedCats) && savedCats.length) categories = savedCats; } catch {}
 
     const state = { category: "Toutes", search: "", sort: "recent", cart: [], selected: null, quantity: 1, orderItems: null };
@@ -938,11 +913,10 @@
     const formatPrice = (price) => `${new Intl.NumberFormat("fr-FR").format(price)} ${CONFIG.currency}`;
     const icon = (name) => `<svg class="icon"><use href="#i-${name}"></use></svg>`;
     const findProduct = (id) => products.find(product => String(product.id) === String(id));
-    const isRemoteProduct = (id) => firebaseProducts.some(item => String(item.id) === String(id));
 
     function rebuildProducts() {
       const edited = defaultProducts.map(p => productEdits[p.id] ? Object.assign({}, p, productEdits[p.id]) : p);
-      products = [...edited, ...firebaseProducts].filter(p => !hiddenProducts.map(String).includes(String(p.id)));
+      products = [...edited, ...customProducts].filter(p => !hiddenProducts.map(String).includes(String(p.id)));
     }
 
     /* ========================= WILAYAS ========================= */
@@ -964,72 +938,12 @@
       $("#wilayaSelect").disabled = false;
     }
 
-    /* ========================= SYNC FIREBASE ========================= */
-    function startFirebaseSync() {
-      if (!firebaseReady) return;
-      dbProductsRef.on("value", snapshot => {
-        const remote = snapshot.val() || {};
-        firebaseProducts = Object.entries(remote).map(([key, value]) => ({...value, id: key}));
-        rebuildProducts();
-        renderCategories(); renderFilters(); renderProducts(); updateCart();
-        if (adminAuthorized) { renderAdminProducts(); updateAdminStats(); }
-      }, error => console.error("Firebase products read failed", error));
-
-      dbOrdersRef.on("value", snapshot => {
-        const remote = snapshot.val() || {};
-        const previousNew = firebaseOrders.filter(o => o.status === "new").length;
-        firebaseOrders = Object.entries(remote).map(([key, value]) => ({...value, id: key})).sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
-        const nowNew = firebaseOrders.filter(o => o.status === "new").length;
-        if (adminAuthorized && nowNew > previousNew && previousNew >= 0 && firebaseOrders.length) toast("🔔 Nouvelle commande reçue !");
-        if (adminAuthorized) { renderAdminOrders(); updateAdminStats(); }
-      }, error => console.error("Firebase orders read failed", error));
-
-      dbCategoriesRef.on("value", snapshot => {
-        const remote = snapshot.val();
-        if (Array.isArray(remote) && remote.length) {
-          categories = remote;
-          localStorage.setItem("daddi_categories", JSON.stringify(categories));
-          refreshCategorySelects(); renderCategories(); renderFilters();
-          if (adminAuthorized) { renderAdminCategories(); updateAdminStats(); }
-        }
-      }, error => console.error("Firebase categories read failed", error));
-    }
-
-    /* ========================= AUTH ADMIN ========================= */
-    function setAdminMessage(message, success = false) {
-      const element = $("#adminAuthMessage");
-      element.textContent = message;
-      element.classList.toggle("success", success);
-    }
-    async function verifyAdminAccess(user) {
-      if (!user || !firebaseReady) return false;
-      const snap = await firebaseDatabase.ref("admins").once("value");
-      const admins = snap.val() || {};
-      if (Object.keys(admins).length === 0) return true; // aucun admin configuré : premier compte autorisé
-      return admins[user.uid] === true;
-    }
-    function showAdminDashboard(user) {
-      adminUser = user; adminAuthorized = true;
-      $("#adminAuthBox").hidden = true; $("#adminDashboard").hidden = false;
-      $("#adminEmail").textContent = user.email || "Administrateur";
-      renderAdminProducts(); renderAdminOrders(); renderAdminCategories(); updateAdminStats();
-    }
-    function hideAdminDashboard() {
-      adminUser = null; adminAuthorized = false;
-      $("#adminAuthBox").hidden = false; $("#adminDashboard").hidden = true;
-      $("#adminEmail").textContent = "";
-    }
-    function startFirebaseAuth() {
-      if (!firebaseReady) { setAdminMessage("Firebase non disponible. Ouvrez le site via http/https."); return; }
-      firebaseAuth.onAuthStateChanged(async user => {
-        if (!user) { hideAdminDashboard(); return; }
-        try {
-          const authorized = await verifyAdminAccess(user);
-          if (!authorized) { await firebaseAuth.signOut(); hideAdminDashboard(); setAdminMessage("Ce compte n'a pas les droits administrateur."); return; }
-          showAdminDashboard(user);
-        } catch (error) { console.error(error); setAdminMessage("Impossible de vérifier les droits."); }
-      });
-    }
+    /* ========================= SAUVEGARDE LOCALE ========================= */
+    function saveCustomProducts() { localStorage.setItem("daddi_custom_products", JSON.stringify(customProducts)); }
+    function saveProductEdits() { localStorage.setItem("daddi_product_edits", JSON.stringify(productEdits)); }
+    function saveHiddenProducts() { localStorage.setItem("daddi_hidden_products", JSON.stringify(hiddenProducts)); }
+    function saveOrders() { localStorage.setItem("daddi_orders", JSON.stringify(orders)); }
+    function saveCategories() { localStorage.setItem("daddi_categories", JSON.stringify(categories)); }
 
     /* ========================= RENDU BOUTIQUE ========================= */
     function renderCommunes(code) {
@@ -1097,12 +1011,12 @@
       document.querySelectorAll("[data-add]").forEach(button => button.addEventListener("click", () => addToCart(button.dataset.add, 1)));
     }
 
-    /* ========================= ADMIN : PRODUITS ========================= */
+    /* ========================= ADMIN ========================= */
     function updateAdminStats() {
       $("#statProducts").textContent = products.length;
       $("#statCategories").textContent = categories.length;
-      $("#statTotalOrders").textContent = firebaseOrders.length;
-      const newCount = firebaseOrders.filter(o => o.status === "new").length;
+      $("#statTotalOrders").textContent = orders.length;
+      const newCount = orders.filter(o => o.status === "new").length;
       $("#statNewOrders").textContent = newCount;
       const badge = $("#adminOrderBadge"), tabBadge = $("#tabOrderBadge");
       if (newCount > 0) { badge.textContent = newCount; badge.style.display = "grid"; tabBadge.textContent = newCount; tabBadge.style.display = "inline-block"; }
@@ -1129,9 +1043,18 @@
     }
 
     function applyProductChanges(id, changes) {
-      if (isRemoteProduct(id)) return dbProductsRef.child(id).update(changes);
-      productEdits[id] = Object.assign({}, productEdits[id], changes);
-      localStorage.setItem("daddi_product_edits", JSON.stringify(productEdits));
+      const isCustom = customProducts.some(p => String(p.id) === String(id));
+      const isDefault = defaultProducts.some(p => String(p.id) === String(id));
+      
+      if (isCustom) {
+        const idx = customProducts.findIndex(p => String(p.id) === String(id));
+        if (idx !== -1) customProducts[idx] = Object.assign({}, customProducts[idx], changes);
+        saveCustomProducts();
+      } else if (isDefault) {
+        productEdits[id] = Object.assign({}, productEdits[id], changes);
+        saveProductEdits();
+      }
+      
       rebuildProducts();
       renderCategories(); renderFilters(); renderProducts(); renderAdminProducts(); updateAdminStats();
       return Promise.resolve();
@@ -1166,39 +1089,33 @@
       let changes;
       if (!pct || pct <= 0) changes = { oldPrice: null, badge: null };
       else changes = { oldPrice: Math.round(p.price / (1 - pct / 100)), badge: `-${pct}%` };
-      applyProductChanges(id, changes).then(() => toast("Promotion mise à jour ✔")).catch(e => { console.error(e); toast("Erreur: " + e.message); });
+      applyProductChanges(id, changes).then(() => toast("Promotion mise à jour ✔"));
     };
 
     window.deleteProduct = function(id) {
       const p = findProduct(id); if (!p) return;
       if (!confirm(`Supprimer "${p.name}" du catalogue ?`)) return;
-      if (isRemoteProduct(id)) {
-        dbProductsRef.child(id).remove().then(() => toast("Produit supprimé")).catch(e => { console.error(e); toast("Suppression refusée par Firebase"); });
+      
+      const isCustom = customProducts.some(x => String(x.id) === String(id));
+      if (isCustom) {
+        customProducts = customProducts.filter(x => String(x.id) !== String(id));
+        saveCustomProducts();
       } else {
         hiddenProducts.push(String(id));
-        localStorage.setItem("daddi_hidden_products", JSON.stringify(hiddenProducts));
-        rebuildProducts();
-        renderCategories(); renderFilters(); renderProducts(); renderAdminProducts(); updateAdminStats();
-        toast("Produit supprimé ✔");
+        saveHiddenProducts();
       }
+      
+      rebuildProducts();
+      renderCategories(); renderFilters(); renderProducts(); renderAdminProducts(); updateAdminStats();
+      toast("Produit supprimé ✔");
     };
 
-    /* ========================= ADMIN : CATÉGORIES ========================= */
     function refreshCategorySelects() {
       const base = ["Pompes", "Filtration", "Traitement", "Nettoyage", "Éclairage", "Chauffage", "Accessoires", "SPA"];
       const all = [...new Set([...base, ...categories.map(c => c.filter)])];
       const html = all.map(f => `<option value="${f}">${f}</option>`).join("");
       $("#eCategory").innerHTML = html;
       $("#adminAddCategory").innerHTML = `<option value="">Choisir Catégorie *</option>` + html;
-    }
-
-    function saveCategories(message) {
-      localStorage.setItem("daddi_categories", JSON.stringify(categories));
-      refreshCategorySelects(); renderCategories(); renderFilters();
-      if (adminAuthorized) { renderAdminCategories(); updateAdminStats(); }
-      if (firebaseReady && adminAuthorized) {
-        dbCategoriesRef.set(categories).then(() => toast(message)).catch(() => toast(message + " (enregistré localement)"));
-      } else toast(message);
     }
 
     function renderAdminCategories() {
@@ -1230,14 +1147,15 @@
       const c = categories.find(x => x.id === id); if (!c) return;
       if (!confirm(`Supprimer la catégorie "${c.name}" ? (Les produits ne seront pas supprimés)`)) return;
       categories = categories.filter(x => x.id !== id);
-      saveCategories("Catégorie supprimée ✔");
+      saveCategories();
+      refreshCategorySelects(); renderCategories(); renderFilters(); renderAdminCategories(); updateAdminStats();
+      toast("Catégorie supprimée ✔");
     };
 
-    /* ========================= ADMIN : COMMANDES ========================= */
     function renderAdminOrders() {
       const list = $("#adminOrdersList");
-      if (!firebaseOrders.length) { list.innerHTML = `<div style="text-align:center; padding: 40px; color: var(--muted);">Aucune commande pour le moment.</div>`; return; }
-      list.innerHTML = firebaseOrders.map(o => {
+      if (!orders.length) { list.innerHTML = `<div style="text-align:center; padding: 40px; color: var(--muted);">Aucune commande pour le moment.</div>`; return; }
+      list.innerHTML = orders.map(o => {
         const date = o.createdAt ? new Date(o.createdAt).toLocaleString("fr-FR", {day:"2-digit", month:"2-digit", year:"numeric", hour:"2-digit", minute:"2-digit"}) : "-";
         const statusClass = o.status === "new" ? "status-new" : (o.status === "processing" ? "status-processing" : "status-completed");
         const statusText = o.status === "new" ? "Nouvelle" : (o.status === "processing" ? "En cours" : "Terminée");
@@ -1273,12 +1191,13 @@
     }
 
     window.updateOrderStatus = function(id, status) {
-      if (!firebaseReady) return toast("Firebase non disponible");
-      dbOrdersRef.child(id).update({ status }).then(() => toast("Statut mis à jour ✔")).catch(e => { console.error(e); toast("Erreur: " + e.message); });
+      const idx = orders.findIndex(o => String(o.id) === String(id));
+      if (idx !== -1) { orders[idx].status = status; saveOrders(); renderAdminOrders(); updateAdminStats(); toast("Statut mis à jour ✔"); }
     };
     window.deleteOrder = function(id) {
       if (!confirm("Archiver (supprimer) cette commande ?")) return;
-      dbOrdersRef.child(id).remove().then(() => toast("Commande archivée ✔")).catch(e => { console.error(e); toast("Erreur: " + e.message); });
+      orders = orders.filter(o => String(o.id) !== String(id));
+      saveOrders(); renderAdminOrders(); updateAdminStats(); toast("Commande archivée ✔");
     };
 
     /* ========================= PANIER & MODALES ========================= */
@@ -1387,10 +1306,31 @@
       }));
       $("#adminOrderBell").addEventListener("click", () => document.querySelector('.admin-tab[data-target="tabOrders"]').click());
 
+      // Connexion admin locale
+      $("#adminLoginForm").addEventListener("submit", e => {
+        e.preventDefault();
+        const pwd = e.target.password.value;
+        if (pwd === CONFIG.adminPassword) {
+          adminLoggedIn = true;
+          $("#adminAuthBox").hidden = true;
+          $("#adminDashboard").hidden = false;
+          renderAdminProducts(); renderAdminOrders(); renderAdminCategories(); updateAdminStats();
+          toast("Connexion réussie ✔");
+        } else {
+          $("#adminAuthMessage").textContent = "Mot de passe incorrect.";
+        }
+      });
+      $("#adminLogout").addEventListener("click", () => {
+        adminLoggedIn = false;
+        $("#adminAuthBox").hidden = false;
+        $("#adminDashboard").hidden = true;
+        $("#adminAuthMessage").textContent = "";
+        e.target.form.reset();
+      });
+
       // Ajout produit
       $("#adminForm").addEventListener("submit", e => {
         e.preventDefault();
-        if (!firebaseReady || !adminAuthorized) return toast("Connexion administrateur requise");
         const data = new FormData(e.currentTarget);
         const id = Date.now();
         const product = {
@@ -1400,14 +1340,16 @@
           badge: data.get("badge").trim() || null, featured: false, popularity: 50,
           specs: [["Marque", data.get("brand").trim() || "DADDI Select"], ["Référence", data.get("reference").trim() || `DADDI-${id}`], ["Disponibilité", data.get("stock").trim() || "En stock"], ["Catégorie", data.get("category")]]
         };
-        dbProductsRef.push(product).then(() => {
-          e.currentTarget.reset();
-          e.currentTarget.querySelector('[name="brand"]').value = "DADDI Select";
-          e.currentTarget.querySelector('[name="stock"]').value = "En stock";
-          $("#adminImagePreview").style.display = "none"; $("#adminImageText").style.display = "block";
-          toast("Produit ajouté avec succès ✔");
-          document.querySelector('.admin-tab[data-target="tabProducts"]').click();
-        }).catch(error => { console.error(error); toast("Ajout refusé par les règles Firebase"); });
+        customProducts.push(product);
+        saveCustomProducts();
+        rebuildProducts();
+        renderCategories(); renderFilters(); renderProducts(); renderAdminProducts(); updateAdminStats();
+        e.currentTarget.reset();
+        e.currentTarget.querySelector('[name="brand"]').value = "DADDI Select";
+        e.currentTarget.querySelector('[name="stock"]').value = "En stock";
+        $("#adminImagePreview").style.display = "none"; $("#adminImageText").style.display = "block";
+        toast("Produit ajouté avec succès ✔");
+        document.querySelector('.admin-tab[data-target="tabProducts"]').click();
       });
 
       // Édition produit
@@ -1421,7 +1363,7 @@
           badge: String(d.get("eBadge")).trim() || null, stock: String(d.get("eStock")).trim() || "En stock",
           image: String(d.get("eImage")).trim(), description: String(d.get("eDescription")).trim()
         };
-        applyProductChanges(id, changes).then(() => { closeOverlay("editOverlay"); toast("Produit mis à jour ✔"); }).catch(err => { console.error(err); toast("Erreur: " + err.message); });
+        applyProductChanges(id, changes).then(() => { closeOverlay("editOverlay"); toast("Produit mis à jour ✔"); });
       });
 
       // Ajout catégorie
@@ -1433,8 +1375,10 @@
         const image = String(d.get("catImage")).trim() || "https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=800&q=80";
         const icn = d.get("catIcon") || "i-grid";
         categories.push({ id: "cat" + Date.now(), name, filter, image, icon: icn });
-        saveCategories("Catégorie ajoutée ✔");
+        saveCategories();
+        refreshCategorySelects(); renderCategories(); renderFilters(); renderAdminCategories(); updateAdminStats();
         e.currentTarget.reset();
+        toast("Catégorie ajoutée ✔");
       });
 
       // Édition catégorie
@@ -1447,48 +1391,35 @@
         c.filter = String(d.get("cFilter")).trim() || c.filter;
         c.image = String(d.get("cImage")).trim() || c.image;
         c.icon = d.get("cIcon") || c.icon;
-        saveCategories("Catégorie mise à jour ✔");
+        saveCategories();
+        refreshCategorySelects(); renderCategories(); renderFilters(); renderAdminCategories(); updateAdminStats();
         closeOverlay("catOverlay");
+        toast("Catégorie mise à jour ✔");
       });
 
-      // Connexion admin
-      $("#adminLoginForm").addEventListener("submit", async e => {
-        e.preventDefault();
-        if (!firebaseReady) return setAdminMessage("Firebase غير متاح. افتح الموقع عبر رابط http أو https.");
-        const data = new FormData(e.currentTarget);
-        setAdminMessage("جاري التحقق...");
-        try {
-          await firebaseAuth.signInWithEmailAndPassword(String(data.get("email")).trim(), String(data.get("password")));
-          e.currentTarget.reset();
-        } catch (error) {
-          console.error(error);
-          setAdminMessage("البريد أو كلمة السر غير صحيحة، أو لم يتم تفعيل Email/Password في Firebase.");
-        }
-      });
-      $("#adminLogout").addEventListener("click", () => { if (firebaseReady) firebaseAuth.signOut(); });
-
-      // Commande client : enregistrement + envoi WhatsApp
-      $("#orderForm").addEventListener("submit", async e => {
+      // Commande client : enregistrement local + envoi WhatsApp
+      $("#orderForm").addEventListener("submit", e => {
         e.preventDefault();
         const data = new FormData(e.currentTarget);
         const items = state.orderItems || state.cart;
         if (!items.length) return toast("Ajoutez au moins un produit");
-        const message = `Bonjour ${data.get("firstName")} ${data.get("lastName")},\n\nDemande de commande chez ${CONFIG.showroomName}:\n\n${whatsappMessage(items)}\n\nTéléphone: ${data.get("phone")}\nWilaya: ${data.get("wilaya")}\nCommune: ${data.get("commune")}\nMode de livraison: ${data.get("delivery")}\nNote: ${data.get("note") || "Aucune"}\n\nAdresse du showroom: ${CONFIG.address}`;
+        
         const order = {
+          id: Date.now(),
           firstName: data.get("firstName"), lastName: data.get("lastName"), phone: data.get("phone"),
           wilaya: data.get("wilaya"), commune: data.get("commune"), delivery: data.get("delivery"),
           note: data.get("note") || "", items, total: items.reduce((sum, item) => sum + (findProduct(item.id) ? findProduct(item.id).price : 0) * item.quantity, 0),
-          status: "new", createdAt: firebaseReady ? firebase.database.ServerValue.TIMESTAMP : Date.now()
+          status: "new", createdAt: Date.now()
         };
-        const whatsappWindow = window.open("about:blank", "_blank");
-        try {
-          if (firebaseReady) await dbOrdersRef.push(order);
-        } catch (error) {
-          console.error("Order database write failed", error);
-          toast("تعذر حفظ الطلب في Firebase، سيتم فتح WhatsApp فقط");
-        }
+        
+        orders.unshift(order);
+        saveOrders();
+        if (adminLoggedIn) { renderAdminOrders(); updateAdminStats(); }
+        
+        const message = `Bonjour ${order.firstName} ${order.lastName},\n\nDemande de commande chez ${CONFIG.showroomName}:\n\n${whatsappMessage(items)}\n\nTéléphone: ${order.phone}\nWilaya: ${order.wilaya}\nCommune: ${order.commune}\nMode de livraison: ${order.delivery}\nNote: ${order.note || "Aucune"}\n\nAdresse du showroom: ${CONFIG.address}`;
         const whatsappUrl = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(message)}`;
-        if (whatsappWindow) whatsappWindow.location.href = whatsappUrl; else window.location.href = whatsappUrl;
+        window.open(whatsappUrl, "_blank");
+        
         e.currentTarget.reset();
         $("#communeSelect").innerHTML = `<option value="">Choisir d'abord la wilaya</option>`; $("#communeSelect").disabled = true;
         state.cart = []; updateCart();
@@ -1500,8 +1431,6 @@
       document.querySelectorAll(".gallery-item").forEach(item => item.addEventListener("click", () => { $("#lightboxImage").src = item.dataset.lightbox; openOverlay("lightboxOverlay"); }));
       $("#contactForm").addEventListener("submit", e => { e.preventDefault(); const data = new FormData(e.currentTarget); const text = `Bonjour, je souhaite demander un devis.\n\nNom: ${data.get("name")}\nTéléphone: ${data.get("phone")}\nProjet: ${data.get("message")}`; window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`, "_blank"); e.currentTarget.reset(); });
 
-      startFirebaseSync();
-      startFirebaseAuth();
       window.addEventListener("scroll", () => $("#siteHeader").classList.toggle("scrolled", window.scrollY > 15), {passive:true});
     });
   </script>
