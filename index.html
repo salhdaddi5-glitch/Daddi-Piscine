@@ -1,0 +1,1056 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DADDI Piscine et Spa — Équipements premium</title>
+  <meta name="description" content="DADDI Piscine et Spa — showroom spécialisé en équipements, accessoires et solutions premium pour piscines et spas.">
+  <meta name="theme-color" content="#071a35">
+  <meta property="og:title" content="DADDI Piscine et Spa">
+  <meta property="og:description" content="Tout pour votre piscine. Une qualité qui fait la différence.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="Logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #071a35;
+      --navy-2: #0c2b50;
+      --blue: #1261a8;
+      --aqua: #18b9d2;
+      --cyan: #62e5ec;
+      --ink: #102238;
+      --muted: #64748b;
+      --line: #dfeaf2;
+      --ice: #f2f8fb;
+      --white: #fff;
+      --gold: #f4c96b;
+      --success: #1c9c81;
+      --shadow-sm: 0 10px 30px rgba(18, 49, 82, .08);
+      --shadow-lg: 0 24px 70px rgba(9, 32, 61, .16);
+      --radius: 22px;
+      --max: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--white);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+    body.modal-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    button { border: 0; cursor: pointer; }
+    img { display: block; max-width: 100%; }
+    :focus-visible { outline: 3px solid rgba(24, 185, 210, .55); outline-offset: 3px; }
+    .container { width: min(var(--max), calc(100% - 44px)); margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      color: var(--aqua); font-size: .71rem; letter-spacing: .18em;
+      text-transform: uppercase; font-weight: 800;
+    }
+    .eyebrow::before { content: ""; width: 26px; height: 2px; background: currentColor; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 38px; }
+    .section-head h2 { margin: 10px 0 0; max-width: 600px; font: 800 clamp(2rem, 4vw, 3.25rem)/1.05 "Manrope", sans-serif; letter-spacing: -.055em; }
+    .section-head p { max-width: 420px; color: var(--muted); margin: 0; }
+    .button {
+      min-height: 48px; display: inline-flex; justify-content: center; align-items: center; gap: 10px;
+      border-radius: 999px; padding: 0 20px; color: var(--white);
+      background: var(--navy); font-weight: 800; font-size: .86rem;
+      box-shadow: 0 10px 22px rgba(7, 26, 53, .16); transition: .25s ease;
+    }
+    .button:hover { transform: translateY(-3px); box-shadow: 0 15px 28px rgba(7, 26, 53, .22); }
+    .button:active { transform: translateY(0) scale(.98); }
+    .button.aqua { color: var(--navy); background: var(--cyan); }
+    .button.ghost { color: var(--navy); background: transparent; border: 1px solid rgba(7, 26, 53, .16); box-shadow: none; }
+    .button.ghost:hover { border-color: var(--aqua); color: var(--blue); background: #f1fcfd; }
+    .icon { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Header */
+    .topline { min-height: 33px; background: var(--navy); color: #c4d7e7; font-size: .7rem; letter-spacing: .03em; }
+    .topline .container { display: flex; justify-content: space-between; align-items: center; min-height: inherit; }
+    .topline strong { color: var(--cyan); }
+    .toplinks { display: flex; gap: 18px; }
+    .toplinks a:hover { color: var(--white); }
+    .site-header { position: sticky; top: 0; z-index: 30; transition: .25s; }
+    .site-header.scrolled .nav { background: rgba(255,255,255,.9); box-shadow: 0 8px 30px rgba(9, 33, 61, .1); backdrop-filter: blur(18px); }
+    .nav { background: rgba(255,255,255,.98); transition: .25s; }
+    .nav-inner { min-height: 83px; display: flex; align-items: center; gap: 28px; }
+    .brand { display: flex; align-items: center; gap: 10px; min-width: 225px; }
+    .brand-mark { width: 55px; height: 45px; border-radius: 12px; object-fit: cover; object-position: center 47%; background: var(--blue); box-shadow: 0 6px 18px rgba(11, 79, 147, .2); }
+    .brand-fallback { display: none; width: 55px; height: 45px; align-items: center; justify-content: center; color: var(--cyan); background: var(--navy); border-radius: 12px; font: 800 1.2rem "Manrope"; }
+    .brand-copy { display: grid; line-height: 1; gap: 5px; }
+    .brand-copy strong { font: 800 1rem "Manrope"; letter-spacing: -.05em; }
+    .brand-copy span { color: var(--muted); font-size: .6rem; letter-spacing: .16em; text-transform: uppercase; }
+    .main-nav { display: flex; align-items: center; gap: 20px; margin-left: auto; }
+    .main-nav a { color: #536476; font-size: .79rem; font-weight: 700; transition: .2s; }
+    .main-nav a:hover, .main-nav a.active { color: var(--blue); }
+    .nav-actions { display: flex; align-items: center; gap: 8px; }
+    .nav-icon { position: relative; width: 40px; height: 40px; display: grid; place-items: center; color: var(--navy); background: #f0f7fa; border-radius: 50%; transition: .2s; }
+    .nav-icon:hover { background: #dff8fa; color: var(--blue); transform: translateY(-2px); }
+    .cart-count { position: absolute; top: -3px; right: -3px; min-width: 18px; height: 18px; padding: 0 4px; display: grid; place-items: center; border-radius: 10px; color: #fff; background: var(--aqua); font-size: .62rem; font-weight: 800; }
+    .menu-toggle { display: none; width: 42px; height: 42px; place-items: center; border-radius: 12px; color: var(--navy); background: #edf7fa; }
+
+    /* Hero */
+    .hero { position: relative; min-height: 700px; display: flex; align-items: center; isolation: isolate; overflow: hidden; color: var(--white); background: var(--navy); }
+    .hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, rgba(4, 21, 43, .94) 0%, rgba(5, 31, 61, .73) 48%, rgba(4, 31, 57, .18) 100%), url("https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=2200&q=85") center/cover; }
+    .hero::after { content: ""; position: absolute; inset: auto 0 0; z-index: -1; height: 22%; background: linear-gradient(transparent, rgba(3, 20, 39, .58)); }
+    .hero-grid { width: min(var(--max), calc(100% - 44px)); margin: 0 auto; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 50px; padding: 90px 0 110px; }
+    .hero h1 { max-width: 670px; margin: 20px 0; font: 800 clamp(3.3rem, 7vw, 6.8rem)/.92 "Manrope", sans-serif; letter-spacing: -.09em; }
+    .hero h1 em { color: var(--cyan); font-style: normal; }
+    .hero-lead { max-width: 510px; margin: 0 0 30px; color: #d5e5f0; font-size: 1.04rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero .button.ghost { color: var(--white); border-color: rgba(255,255,255,.35); }
+    .hero .button.ghost:hover { color: var(--navy); background: var(--white); }
+    .hero-stats { display: flex; flex-wrap: wrap; gap: 25px; margin-top: 49px; }
+    .hero-stat { display: grid; gap: 1px; padding-left: 14px; border-left: 1px solid rgba(255,255,255,.35); }
+    .hero-stat strong { font: 700 1.32rem "Manrope"; }
+    .hero-stat span { color: #b4cbda; font-size: .7rem; }
+    .hero-showcase { position: relative; justify-self: end; width: min(100%, 455px); height: 445px; }
+    .hero-card { position: absolute; border: 1px solid rgba(255,255,255,.23); background: rgba(255,255,255,.12); backdrop-filter: blur(16px); box-shadow: 0 25px 65px rgba(0,0,0,.24); }
+    .hero-product { width: 320px; height: 372px; right: 28px; top: 18px; padding: 10px; border-radius: 28px; transform: rotate(3deg); }
+    .hero-product img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; }
+    .hero-product-info { position: absolute; left: 28px; right: 28px; bottom: 28px; padding: 15px 17px; border-radius: 16px; background: rgba(4, 24, 48, .72); }
+    .hero-product-info small { color: var(--cyan); font-size: .65rem; text-transform: uppercase; letter-spacing: .12em; }
+    .hero-product-info strong { display: block; margin-top: 3px; font: 700 1rem "Manrope"; }
+    .hero-note { left: 0; bottom: 22px; display: flex; gap: 12px; align-items: center; padding: 13px 16px; border-radius: 15px; color: #dbeaf2; font-size: .77rem; }
+    .hero-note .note-icon { display: grid; place-items: center; width: 32px; height: 32px; color: var(--navy); border-radius: 50%; background: var(--cyan); }
+    .hero-note strong { display: block; color: var(--white); font-size: .83rem; }
+
+    /* Categories */
+    .categories { padding: 100px 0 108px; background: var(--ice); }
+    .category-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .category-card { position: relative; min-height: 190px; display: flex; flex-direction: column; justify-content: end; overflow: hidden; padding: 20px; border-radius: 18px; color: #fff; background: var(--navy); isolation: isolate; box-shadow: var(--shadow-sm); }
+    .category-card::before { content: ""; position: absolute; inset: 0; z-index: -2; background: linear-gradient(0deg, rgba(3,17,35,.91) 0%, rgba(4,25,48,.08) 75%), var(--category-image) center/cover; transition: transform .5s; }
+    .category-card::after { content: ""; position: absolute; inset: 0; z-index: -1; border: 1px solid rgba(255,255,255,.18); border-radius: inherit; }
+    .category-card:hover::before { transform: scale(1.08); }
+    .category-card:hover { box-shadow: 0 18px 34px rgba(7, 41, 76, .2); transform: translateY(-4px); }
+    .category-icon { width: 34px; height: 34px; display: grid; place-items: center; margin-bottom: auto; color: var(--navy); border-radius: 11px; background: rgba(190,247,248,.92); }
+    .category-card h3 { margin: 0 0 4px; font: 700 1rem "Manrope"; }
+    .category-bottom { display: flex; align-items: end; justify-content: space-between; gap: 8px; }
+    .category-bottom small { color: #c2d3dd; font-size: .7rem; }
+    .category-arrow { display: grid; place-items: center; width: 29px; height: 29px; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; transition: .25s; }
+    .category-card:hover .category-arrow { color: var(--navy); background: var(--cyan); transform: translateX(4px); }
+
+    /* Product catalog */
+    .catalog { padding: 112px 0; }
+    .catalog-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; }
+    .filter-list { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-btn { padding: 10px 15px; border: 1px solid var(--line); border-radius: 999px; color: #64778b; background: var(--white); font-size: .77rem; font-weight: 700; transition: .2s; }
+    .filter-btn:hover, .filter-btn.active { color: var(--white); border-color: var(--navy); background: var(--navy); }
+    .catalog-tools { display: flex; align-items: center; gap: 10px; }
+    .search-box { position: relative; width: min(100%, 250px); }
+    .search-box .icon { position: absolute; top: 50%; left: 14px; transform: translateY(-50%); color: #8da2b5; }
+    .search-box input, .sort-select { width: 100%; height: 43px; padding: 0 14px 0 42px; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); background: #fbfdfe; outline: none; font-size: .78rem; }
+    .search-box input:focus, .sort-select:focus { border-color: var(--aqua); box-shadow: 0 0 0 4px rgba(24,185,210,.1); }
+    .sort-select { min-width: 145px; padding: 0 12px; }
+    .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 17px; }
+    .product-card { position: relative; min-width: 0; overflow: hidden; border: 1px solid #e5eef3; border-radius: 20px; background: var(--white); transition: .3s; }
+    .product-card:hover { border-color: #b9e7ed; transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .product-image-wrap { position: relative; height: 238px; overflow: hidden; background: #eef7f9; }
+    .product-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+    .product-card:hover .product-image-wrap img { transform: scale(1.07); }
+    .product-badges { position: absolute; top: 13px; left: 13px; display: flex; flex-wrap: wrap; gap: 5px; }
+    .badge { padding: 5px 8px; border-radius: 6px; color: var(--navy); background: var(--cyan); font-size: .61rem; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; }
+    .badge.sale { color: #fff; background: #ef8765; }
+    .quick-view { position: absolute; top: 13px; right: 13px; width: 34px; height: 34px; display: grid; place-items: center; color: var(--navy); border-radius: 50%; background: rgba(255,255,255,.9); opacity: 0; transform: translateY(-5px); transition: .25s; }
+    .product-card:hover .quick-view { opacity: 1; transform: none; }
+    .product-body { padding: 18px; }
+    .product-category { color: var(--aqua); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 800; }
+    .product-body h3 { min-height: 44px; margin: 7px 0 5px; font: 700 1rem/1.3 "Manrope"; letter-spacing: -.03em; }
+    .product-description { min-height: 41px; margin: 0 0 14px; color: var(--muted); font-size: .74rem; line-height: 1.45; }
+    .price-line { display: flex; align-items: baseline; gap: 8px; margin-bottom: 14px; }
+    .price { font: 800 1.12rem "Manrope"; letter-spacing: -.04em; }
+    .old-price { color: #9aaab8; font-size: .73rem; text-decoration: line-through; }
+    .stock { display: flex; align-items: center; gap: 5px; margin-bottom: 14px; color: var(--success); font-size: .68rem; font-weight: 700; }
+    .stock::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+    .product-actions { display: grid; grid-template-columns: 1fr 40px; gap: 7px; }
+    .product-actions .button { min-height: 40px; padding: 0 10px; font-size: .72rem; box-shadow: none; }
+    .mini-cart { display: grid; place-items: center; min-height: 40px; border-radius: 12px; color: var(--navy); background: #eaf7f8; transition: .2s; }
+    .mini-cart:hover { color: var(--white); background: var(--aqua); }
+    .empty-state { grid-column: 1 / -1; padding: 70px 20px; text-align: center; color: var(--muted); }
+    .empty-state strong { display: block; margin-bottom: 4px; color: var(--ink); font: 700 1.2rem "Manrope"; }
+
+    /* Promo */
+    .promo { padding: 88px 0; color: #fff; background: var(--navy); }
+    .promo-wrap { display: grid; grid-template-columns: .7fr 1.3fr; gap: 45px; align-items: center; }
+    .promo h2 { margin: 12px 0; font: 800 clamp(2rem, 4vw, 3.5rem)/1 "Manrope"; letter-spacing: -.065em; }
+    .promo p { color: #b8cedd; max-width: 400px; }
+    .promo-track { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .promo-card { position: relative; min-height: 250px; display: flex; flex-direction: column; justify-content: end; overflow: hidden; padding: 23px; border-radius: 22px; isolation: isolate; }
+    .promo-card::before { content: ""; position: absolute; inset: 0; z-index: -2; background: linear-gradient(0deg, rgba(4, 19, 40, .9), rgba(4,19,40,.05)), var(--promo-image) center/cover; transition: transform .55s; }
+    .promo-card:hover::before { transform: scale(1.07); }
+    .promo-card .badge { position: absolute; top: 17px; left: 17px; }
+    .promo-card h3 { margin: 0 0 4px; font: 700 1.15rem "Manrope"; }
+    .promo-card p { margin: 0; color: #d0e1eb; font-size: .76rem; }
+    .promo-card a { margin-top: 13px; color: var(--cyan); font-size: .74rem; font-weight: 800; }
+
+    /* Story / showroom */
+    .showroom { padding: 115px 0; background: #f7fbfc; }
+    .showroom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .image-stack { position: relative; min-height: 520px; }
+    .image-stack .main-image { width: 83%; height: 440px; margin-left: auto; object-fit: cover; border-radius: 24px; box-shadow: var(--shadow-lg); }
+    .image-stack .small-image { position: absolute; left: 0; bottom: 0; width: 45%; height: 240px; object-fit: cover; border: 10px solid #f7fbfc; border-radius: 22px; box-shadow: var(--shadow-lg); }
+    .image-stamp { position: absolute; top: 38px; left: 3%; display: grid; place-items: center; width: 105px; height: 105px; padding: 17px; text-align: center; border: 1px solid rgba(24,185,210,.35); border-radius: 50%; color: var(--navy); background: rgba(255,255,255,.9); box-shadow: var(--shadow-sm); font: 800 .7rem/1.15 "Manrope"; }
+    .story h2 { margin: 12px 0 18px; font: 800 clamp(2.2rem, 4vw, 3.8rem)/1.02 "Manrope"; letter-spacing: -.07em; }
+    .story > p { color: var(--muted); max-width: 500px; }
+    .story-points { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
+    .story-point { display: flex; gap: 10px; align-items: start; font-size: .78rem; font-weight: 700; }
+    .story-point .icon { flex: 0 0 auto; color: var(--aqua); }
+    .why { padding: 95px 0; }
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .why-card { padding: 25px; border: 1px solid var(--line); border-radius: 18px; transition: .25s; }
+    .why-card:hover { border-color: var(--aqua); box-shadow: var(--shadow-sm); transform: translateY(-4px); }
+    .why-card .why-icon { display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 20px; border-radius: 13px; color: var(--blue); background: #e4f9fa; }
+    .why-card h3 { margin: 0 0 6px; font: 700 .92rem "Manrope"; }
+    .why-card p { margin: 0; color: var(--muted); font-size: .74rem; }
+    .brands { padding: 45px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .brands-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .brands-label { color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .15em; font-weight: 800; }
+    .brand-name { color: #8ea1ae; filter: grayscale(1); opacity: .75; font: 800 1.08rem "Manrope"; letter-spacing: -.08em; transition: .25s; }
+    .brand-name:hover { color: var(--blue); filter: none; opacity: 1; }
+
+    /* Gallery & contact */
+    .gallery { padding: 112px 0; }
+    .gallery-grid { display: grid; grid-template-columns: 1.2fr .8fr .8fr; grid-template-rows: 190px 190px; gap: 12px; }
+    .gallery-item { position: relative; overflow: hidden; min-height: 0; border-radius: 16px; cursor: pointer; background: #dceef2; }
+    .gallery-item:first-child { grid-row: 1 / 3; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: .5s; }
+    .gallery-item::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 55%, rgba(3, 20, 40, .55)); opacity: .7; }
+    .gallery-item:hover img { transform: scale(1.07); }
+    .gallery-item span { position: absolute; z-index: 1; left: 17px; bottom: 14px; color: #fff; font-size: .75rem; font-weight: 700; }
+    .contact { padding: 100px 0; color: #fff; background: var(--navy); }
+    .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: start; }
+    .contact h2 { margin: 12px 0 15px; font: 800 clamp(2rem, 4vw, 3.5rem)/1.02 "Manrope"; letter-spacing: -.07em; }
+    .contact-intro { color: #b7ccd9; max-width: 390px; }
+    .contact-list { display: grid; gap: 15px; margin-top: 30px; }
+    .contact-item { display: flex; align-items: center; gap: 12px; color: #d9e7ef; font-size: .82rem; }
+    .contact-item .icon { width: 20px; color: var(--cyan); }
+    .contact-panel { display: grid; grid-template-columns: 1fr .9fr; min-height: 300px; overflow: hidden; border: 1px solid rgba(255,255,255,.14); border-radius: 24px; background: #0b294b; }
+    .contact-form { padding: 30px; }
+    .contact-form h3 { margin: 0 0 20px; font: 700 1.25rem "Manrope"; }
+    .field { width: 100%; min-height: 45px; margin-bottom: 11px; padding: 0 14px; border: 1px solid rgba(255,255,255,.17); border-radius: 10px; color: #fff; background: rgba(255,255,255,.06); outline: none; font-size: .77rem; }
+    textarea.field { padding-top: 12px; resize: vertical; min-height: 82px; }
+    .field::placeholder { color: #92abba; }
+    .field:focus { border-color: var(--cyan); }
+    .map-card { position: relative; min-height: 100%; overflow: hidden; background: url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80") center/cover; }
+    .map-card::before { content: ""; position: absolute; inset: 0; background: rgba(6,34,58,.42); }
+    .map-pin { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: grid; place-items: center; width: 55px; height: 55px; color: var(--navy); border: 7px solid rgba(255,255,255,.4); border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 8px rgba(98,229,236,.25); }
+    .map-caption { position: absolute; right: 15px; bottom: 15px; left: 15px; padding: 12px; border-radius: 10px; color: #fff; background: rgba(3,20,40,.7); backdrop-filter: blur(8px); font-size: .73rem; }
+
+    /* Footer / floating */
+    footer { padding: 62px 0 26px; color: #9eb2c2; background: #041326; }
+    .footer-grid { display: grid; grid-template-columns: 1.3fr .7fr .7fr 1fr; gap: 40px; padding-bottom: 48px; }
+    footer .brand-copy strong { color: #fff; } footer .brand-copy span { color: #91aabe; }
+    .footer-description { max-width: 260px; margin: 18px 0; font-size: .77rem; }
+    .socials { display: flex; gap: 8px; }
+    .social { width: 33px; height: 33px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.15); border-radius: 50%; color: var(--cyan); font-size: .72rem; font-weight: 800; transition: .2s; }
+    .social:hover { color: var(--navy); background: var(--cyan); }
+    footer h4 { margin: 0 0 16px; color: #fff; font: 700 .77rem "Manrope"; text-transform: uppercase; letter-spacing: .1em; }
+    .footer-links { display: grid; gap: 9px; font-size: .77rem; }
+    .footer-links a:hover { color: var(--cyan); }
+    .copyright { display: flex; justify-content: space-between; gap: 20px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.1); font-size: .68rem; }
+    .floating-actions { position: fixed; z-index: 20; right: 22px; bottom: 24px; display: grid; gap: 8px; }
+    .floating { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; color: var(--white); background: var(--navy); box-shadow: 0 8px 20px rgba(0,0,0,.18); transition: .25s; }
+    .floating:hover { transform: translateX(-4px); }
+    .floating.whatsapp { background: #1ab883; }
+    .floating.call { background: var(--aqua); color: var(--navy); }
+    .mobile-dock { display: none; }
+
+    /* Panels */
+    .overlay { position: fixed; z-index: 50; inset: 0; display: none; align-items: center; justify-content: center; padding: 20px; background: rgba(3, 18, 35, .7); backdrop-filter: blur(8px); }
+    .overlay.open { display: flex; animation: fadeIn .2s ease; }
+    .modal { position: relative; width: min(960px, 100%); max-height: min(740px, 92vh); overflow: auto; border-radius: 25px; background: #fff; box-shadow: 0 30px 90px rgba(0,0,0,.32); animation: slideUp .3s ease; }
+    .close { position: absolute; z-index: 2; top: 15px; right: 15px; width: 37px; height: 37px; display: grid; place-items: center; color: var(--navy); border-radius: 50%; background: rgba(255,255,255,.9); box-shadow: 0 3px 12px rgba(0,0,0,.1); }
+    .product-modal { display: grid; grid-template-columns: 1fr 1fr; }
+    .modal-image { min-height: 480px; background: #edf8fa; }
+    .modal-image img { width: 100%; height: 100%; object-fit: cover; }
+    .modal-content { padding: 55px 36px 32px; }
+    .modal-content h2 { margin: 10px 0 8px; font: 800 2.2rem/1.02 "Manrope"; letter-spacing: -.065em; }
+    .modal-content .product-description { min-height: auto; margin: 16px 0; font-size: .87rem; }
+    .specs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 24px 0; }
+    .spec { padding: 11px 12px; border-radius: 10px; background: #f2f8fa; font-size: .73rem; }
+    .spec span { display: block; color: var(--muted); font-size: .65rem; }
+    .quantity-row { display: flex; align-items: center; gap: 12px; margin: 18px 0; }
+    .quantity { display: flex; align-items: center; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+    .quantity button { width: 34px; height: 36px; color: var(--navy); background: #f4f9fb; }
+    .quantity span { width: 32px; text-align: center; font-weight: 800; font-size: .8rem; }
+    .modal-buttons { display: grid; gap: 8px; }
+    .cart-drawer { position: absolute; top: 0; right: 0; bottom: 0; width: min(440px, 100%); display: flex; flex-direction: column; background: #fff; animation: drawerIn .3s ease; }
+    .drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 25px; border-bottom: 1px solid var(--line); }
+    .drawer-head h2 { margin: 0; font: 800 1.3rem "Manrope"; }
+    .cart-items { flex: 1; overflow: auto; padding: 20px 25px; }
+    .cart-item { display: grid; grid-template-columns: 65px 1fr auto; gap: 11px; align-items: center; padding: 13px 0; border-bottom: 1px solid #edf2f4; }
+    .cart-item img { width: 65px; height: 60px; object-fit: cover; border-radius: 10px; }
+    .cart-item h4 { margin: 0 0 4px; font-size: .77rem; }
+    .cart-item p { margin: 0; color: var(--muted); font-size: .68rem; }
+    .cart-quantity { display: flex; align-items: center; gap: 7px; margin-top: 7px; }
+    .cart-quantity button { width: 21px; height: 21px; border-radius: 5px; color: var(--navy); background: #eaf6f8; font-size: .8rem; }
+    .remove-item { color: #cf7b78; background: transparent; font-size: .66rem; }
+    .drawer-foot { padding: 22px 25px; border-top: 1px solid var(--line); }
+    .total-line { display: flex; justify-content: space-between; margin-bottom: 14px; font-weight: 800; }
+    .total-line strong { font: 800 1.2rem "Manrope"; }
+    .cart-empty { padding: 60px 10px; text-align: center; color: var(--muted); font-size: .82rem; }
+    .cart-empty .icon { width: 36px; height: 36px; margin: 0 auto 13px; color: var(--aqua); }
+    .lightbox img { max-width: min(1100px, 92vw); max-height: 82vh; border-radius: 17px; box-shadow: 0 20px 70px rgba(0,0,0,.35); }
+    .order-modal { width: min(760px, 100%); padding: 34px; }
+    .order-modal h2 { margin: 0 0 6px; font: 800 2rem/1.05 "Manrope"; letter-spacing: -.06em; }
+    .order-modal > p { margin: 0 0 23px; color: var(--muted); font-size: .82rem; }
+    .order-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .order-grid .field { margin: 0; color: var(--ink); border-color: var(--line); background: #fbfdfe; }
+    .order-grid .field::placeholder { color: #8ea0ad; }
+    .order-grid .field:focus { border-color: var(--aqua); }
+    .order-grid select.field { padding: 0 12px; }
+    .order-grid .full { grid-column: 1 / -1; }
+    .delivery-choice { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; grid-column: 1 / -1; }
+    .delivery-choice input { position: absolute; opacity: 0; pointer-events: none; }
+    .delivery-choice label { display: flex; align-items: center; gap: 10px; padding: 13px; border: 1px solid var(--line); border-radius: 11px; cursor: pointer; color: var(--muted); font-size: .78rem; font-weight: 700; transition: .2s; }
+    .delivery-choice label::before { content: ""; width: 15px; height: 15px; border: 1px solid #a9bdc9; border-radius: 50%; }
+    .delivery-choice input:checked + label { color: var(--navy); border-color: var(--aqua); background: #effcfd; }
+    .delivery-choice input:checked + label::before { border: 4px solid var(--aqua); }
+    .order-summary { grid-column: 1 / -1; padding: 14px; border-radius: 12px; color: var(--muted); background: #f2f8fa; font-size: .76rem; }
+    .order-summary strong { color: var(--ink); }
+    .admin-panel { min-height: calc(100vh - 0px); padding: 74px 0 110px; background: var(--ice); }
+    .admin-top { display: flex; align-items: end; justify-content: space-between; gap: 22px; margin-bottom: 28px; }
+    .admin-top h1 { margin: 10px 0 0; font: 800 clamp(2rem, 4vw, 3.4rem)/1 "Manrope"; letter-spacing: -.07em; }
+    .admin-top p { max-width: 440px; color: var(--muted); font-size: .8rem; }
+    .admin-layout { display: grid; grid-template-columns: .82fr 1.18fr; gap: 20px; align-items: start; }
+    .admin-card { padding: 25px; border: 1px solid var(--line); border-radius: 20px; background: #fff; box-shadow: var(--shadow-sm); }
+    .admin-card h2 { margin: 0 0 18px; font: 800 1.2rem "Manrope"; letter-spacing: -.04em; }
+    .admin-form { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .admin-form .field { min-width: 0; margin: 0; color: var(--ink); border-color: var(--line); background: #fbfdfe; }
+    .admin-form textarea.field { min-height: 74px; }
+    .admin-form .full { grid-column: 1 / -1; }
+    .admin-form select.field { padding: 0 12px; }
+    .admin-list { display: grid; gap: 9px; max-height: 640px; overflow: auto; }
+    .admin-product { display: grid; grid-template-columns: 54px 1fr auto; gap: 12px; align-items: center; padding: 10px; border: 1px solid #e8f0f3; border-radius: 13px; }
+    .admin-product img { width: 54px; height: 54px; object-fit: cover; border-radius: 9px; background: #edf8fa; }
+    .admin-product h3 { margin: 0 0 3px; font-size: .78rem; }
+    .admin-product p { margin: 0; color: var(--muted); font-size: .68rem; }
+    .admin-product strong { display: block; color: var(--blue); font-size: .78rem; }
+    .admin-delete { color: #c36d6a; background: transparent; font-size: .68rem; }
+    .admin-note { margin-top: 14px; color: var(--muted); font-size: .68rem; line-height: 1.5; }
+    .admin-auth { width: min(470px, 100%); margin: 25px auto 0; padding: 28px; border: 1px solid var(--line); border-radius: 20px; background: #fff; box-shadow: var(--shadow-sm); }
+    .admin-auth h2 { margin: 0 0 7px; font: 800 1.35rem "Manrope"; letter-spacing: -.05em; }
+    .admin-auth p { margin: 0 0 20px; color: var(--muted); font-size: .76rem; }
+    .admin-auth .field { width: 100%; margin-bottom: 10px; color: var(--ink); border-color: var(--line); background: #fbfdfe; }
+    .admin-auth-message { min-height: 20px; margin: 12px 0 0; color: #c36d6a; font-size: .72rem; }
+    .admin-auth-message.success { color: var(--success); }
+    .admin-userbar { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin: 0 0 20px; padding: 12px 15px; border: 1px solid #c9edf0; border-radius: 13px; color: var(--navy); background: #effcfd; font-size: .75rem; }
+    .admin-userbar button { color: #b85f5c; background: transparent; font-weight: 700; font-size: .72rem; }
+    .admin-loading { padding: 35px; color: var(--muted); text-align: center; font-size: .78rem; }
+    body.admin-route .site-header, body.admin-route footer, body.admin-route .floating-actions, body.admin-route .mobile-dock { display: none; }
+    body.admin-route main > section:not(#adminPanel) { display: none; }
+    body.admin-route #adminPanel { display: block !important; }
+
+    @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(18px) } to { opacity: 1; transform: none } }
+    @keyframes drawerIn { from { transform: translateX(100%) } to { transform: none } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+    @media (max-width: 1100px) {
+      .main-nav { gap: 13px; }
+      .main-nav a { font-size: .73rem; }
+      .products-grid { grid-template-columns: repeat(3, 1fr); }
+      .category-grid { grid-template-columns: repeat(4, 1fr); }
+      .category-card:last-child { display: none; }
+    }
+    @media (max-width: 820px) {
+      .topline { display: none; }
+      .nav-inner { min-height: 68px; }
+      .main-nav { position: fixed; inset: 68px 0 auto; display: none; padding: 24px; background: #fff; box-shadow: 0 20px 30px rgba(7,26,53,.12); }
+      .main-nav.open { display: grid; }
+      .main-nav a { padding: 11px 0; font-size: .9rem; border-bottom: 1px solid #edf2f4; }
+      .nav-actions .button { display: none; }
+      .menu-toggle { display: grid; }
+      .hero-grid, .showroom-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero { min-height: 0; }
+      .hero-grid { padding: 80px 0 90px; }
+      .hero-showcase { justify-self: start; width: min(100%, 450px); height: 390px; }
+      .promo-wrap { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1.2fr 1fr 1fr; }
+      .footer-grid > :first-child { grid-column: 1 / -1; }
+      .contact-panel { grid-template-columns: 1fr; }
+      .map-card { min-height: 240px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 210px 160px 160px; }
+      .gallery-item:first-child { grid-row: auto; grid-column: 1 / -1; }
+    }
+    @media (max-width: 580px) {
+      .container, .hero-grid { width: min(100% - 30px, var(--max)); }
+      .brand { min-width: 0; }
+      .brand-copy strong { font-size: .87rem; }
+      .brand-copy span { font-size: .5rem; }
+      .brand-mark { width: 45px; height: 38px; }
+      .nav-inner { gap: 8px; }
+      .nav-actions { margin-left: auto; }
+      .nav-icon { width: 35px; height: 35px; }
+      .hero h1 { font-size: clamp(2.95rem, 15vw, 4.4rem); }
+      .hero-lead { font-size: .9rem; }
+      .hero-showcase { height: 325px; }
+      .hero-product { width: 245px; height: 290px; right: 4px; }
+      .hero-note { left: 0; bottom: 4px; }
+      .section-head { display: block; margin-bottom: 25px; }
+      .section-head p { margin-top: 14px; }
+      .categories, .catalog, .showroom, .gallery { padding: 76px 0; }
+      .category-grid { grid-template-columns: repeat(2, 1fr); }
+      .category-card { min-height: 160px; }
+      .category-card:last-child { display: flex; }
+      .catalog-toolbar { align-items: stretch; }
+      .filter-list { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+      .filter-btn { flex: 0 0 auto; }
+      .catalog-tools { width: 100%; }
+      .search-box { flex: 1; width: auto; }
+      .sort-select { min-width: 110px; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .product-image-wrap { height: 170px; }
+      .product-body { padding: 13px; }
+      .product-body h3 { min-height: 50px; font-size: .83rem; }
+      .product-description { display: none; }
+      .price { font-size: .9rem; }
+      .stock { font-size: .6rem; }
+      .product-actions .button { font-size: .64rem; }
+      .promo { padding: 70px 0; }
+      .promo-track { grid-template-columns: 1fr; }
+      .image-stack { min-height: 390px; }
+      .image-stack .main-image { height: 330px; }
+      .image-stack .small-image { height: 170px; }
+      .story-points { gap: 12px; }
+      .story-point { font-size: .7rem; }
+      .why { padding: 70px 0; }
+      .why-grid { gap: 10px; }
+      .why-card { padding: 17px; }
+      .why-card p { font-size: .68rem; }
+      .gallery-grid { gap: 8px; grid-template-rows: 190px 125px 125px; }
+      .contact { padding: 76px 0; }
+      .contact-panel { border-radius: 18px; }
+      .contact-form { padding: 21px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+      .footer-grid > :first-child { grid-column: 1 / -1; }
+      .copyright { display: block; line-height: 1.8; }
+      .floating-actions { right: 12px; bottom: 68px; }
+      .mobile-dock { position: fixed; z-index: 25; right: 10px; bottom: 9px; left: 10px; display: grid; grid-template-columns: repeat(5, 1fr); padding: 8px 5px; border: 1px solid rgba(255,255,255,.7); border-radius: 18px; background: rgba(255,255,255,.93); box-shadow: 0 8px 25px rgba(4,30,54,.17); backdrop-filter: blur(16px); }
+      .mobile-dock a, .mobile-dock button { display: grid; place-items: center; gap: 2px; color: #7a8b9a; background: none; font-size: .57rem; font-weight: 700; }
+      .mobile-dock .icon { width: 17px; height: 17px; }
+      .mobile-dock a:hover, .mobile-dock button:hover { color: var(--blue); }
+      .product-modal { grid-template-columns: 1fr; }
+      .modal-image { min-height: 260px; max-height: 310px; }
+      .modal-content { padding: 32px 22px 25px; }
+      .modal-content h2 { font-size: 1.8rem; }
+      .modal { border-radius: 20px; }
+      .order-modal { padding: 25px 18px; }
+      .order-modal h2 { font-size: 1.65rem; }
+      .order-grid, .admin-form { grid-template-columns: 1fr; }
+      .order-grid .full, .delivery-choice, .order-summary, .admin-form .full { grid-column: auto; }
+      .delivery-choice { grid-template-columns: 1fr; }
+      .admin-top, .admin-layout { display: block; }
+      .admin-top .button { margin-top: 13px; }
+      .admin-card + .admin-card { margin-top: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline">
+    <div class="container">
+      <span><strong>Showroom ouvert</strong> — Conseils experts pour vos projets piscine</span>
+      <div class="toplinks"><a href="#contact">Nous contacter</a><a href="#contact">Livraison disponible</a></div>
+    </div>
+  </div>
+  <header class="site-header" id="siteHeader">
+    <div class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="#accueil" aria-label="DADDI Piscine et Spa, accueil">
+          <img class="brand-mark" src="Logo.jpg" alt="Logo DADDI Piscine et Spa" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <span class="brand-fallback">D</span>
+          <span class="brand-copy"><strong>DADDI</strong><span>Piscine et Spa</span></span>
+        </a>
+        <nav class="main-nav" id="mainNav" aria-label="Navigation principale">
+          <a href="#accueil">Accueil</a><a href="#produits">Produits</a><a href="#categories">Catégories</a><a href="#promotions">Promotions</a><a href="#a-propos">À propos</a><a href="#galerie">Galerie</a><a href="#contact">Contact</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="nav-icon" id="headerSearch" aria-label="Rechercher"><svg class="icon"><use href="#i-search"/></svg></button>
+          <button class="nav-icon" id="cartButton" aria-label="Ouvrir la demande"><svg class="icon"><use href="#i-bag"/></svg><span class="cart-count" id="cartCount">0</span></button>
+          <a class="button aqua" href="#contact">Demander un devis <svg class="icon"><use href="#i-arrow"/></svg></a>
+          <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu"><svg class="icon"><use href="#i-menu"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">L'art de l'eau, pensé pour vous</span>
+          <h1>Tout pour votre <em>piscine.</em></h1>
+          <p class="hero-lead">Une qualité qui fait la différence. Découvrez notre showroom spécialisé en équipements, accessoires et solutions pour piscines et spas.</p>
+          <div class="hero-actions">
+            <a class="button aqua" href="#produits">Découvrir nos produits <svg class="icon"><use href="#i-arrow"/></svg></a>
+            <a class="button ghost" href="#a-propos">Visiter le showroom <svg class="icon"><use href="#i-play"/></svg></a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat"><strong>15+</strong><span>années d'expertise</span></div>
+            <div class="hero-stat"><strong>500+</strong><span>références en stock</span></div>
+            <div class="hero-stat"><strong>100%</strong><span>conseil personnalisé</span></div>
+          </div>
+        </div>
+        <div class="hero-showcase" aria-label="Sélection du moment">
+          <div class="hero-card hero-product">
+            <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?auto=format&fit=crop&w=900&q=85" alt="Piscine moderne équipée">
+            <div class="hero-product-info"><small>Sélection du moment</small><strong>Une eau parfaite, sans compromis.</strong></div>
+          </div>
+          <div class="hero-card hero-note"><span class="note-icon"><svg class="icon"><use href="#i-check"/></svg></span><span><strong>Qualité • Expertise • Service</strong>Tout ce qu'il faut, au même endroit.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="categories" id="categories">
+      <div class="container">
+        <div class="section-head"><div><span class="eyebrow">Explorez notre univers</span><h2>Nos catégories</h2></div><p>Des solutions fiables et élégantes pour chaque étape de votre projet.</p></div>
+        <div class="category-grid" id="categoryGrid"></div>
+      </div>
+    </section>
+
+    <section class="catalog" id="produits">
+      <div class="container">
+        <div class="section-head"><div><span class="eyebrow">La sélection DADDI</span><h2>Nos produits</h2></div><p>Découvrez notre sélection d'équipements et d'accessoires pour piscines et spas.</p></div>
+        <div class="catalog-toolbar">
+          <div class="filter-list" id="filterList" aria-label="Filtres produits"></div>
+          <div class="catalog-tools">
+            <label class="search-box"><svg class="icon"><use href="#i-search"/></svg><input id="searchInput" type="search" placeholder="Rechercher un produit..." aria-label="Rechercher un produit"></label>
+            <select class="sort-select" id="sortSelect" aria-label="Trier les produits"><option value="recent">Plus récents</option><option value="asc">Prix croissant</option><option value="desc">Prix décroissant</option><option value="popular">Populaires</option></select>
+          </div>
+        </div>
+        <div class="products-grid" id="productsGrid"></div>
+      </div>
+    </section>
+
+    <section class="promo" id="promotions">
+      <div class="container promo-wrap">
+        <div><span class="eyebrow">À ne pas manquer</span><h2>Offres du moment</h2><p>Les essentiels de la saison, sélectionnés par notre équipe avec des conditions privilégiées.</p><a class="button aqua" href="#produits">Voir les offres <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        <div class="promo-track">
+          <article class="promo-card" style="--promo-image:url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=900&q=85')"><span class="badge sale">-20%</span><h3>Un été bien équipé</h3><p>Sur une sélection d'accessoires piscine</p><a href="#produits">Découvrir l'offre →</a></article>
+          <article class="promo-card" style="--promo-image:url('https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=900&q=85')"><span class="badge">Nouveau</span><h3>Confort absolu</h3><p>Les nouveautés pour votre espace spa</p><a href="#produits">Explorer la sélection →</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="showroom" id="a-propos">
+      <div class="container showroom-grid">
+        <div class="image-stack">
+          <img class="main-image" src="https://images.unsplash.com/photo-1560089000-7433a4ebbd64?auto=format&fit=crop&w=1100&q=85" alt="Piscine extérieure élégante">
+          <img class="small-image" src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?auto=format&fit=crop&w=700&q=85" alt="Détail d'un équipement de piscine">
+          <div class="image-stamp">L'eau<br>comme<br>signature</div>
+        </div>
+        <div class="story"><span class="eyebrow">Notre savoir-faire</span><h2>Plus qu'un showroom, votre partenaire.</h2><p>DADDI Piscine et Spa accompagne les particuliers et les professionnels avec une sélection exigeante de produits, des conseils concrets et un service qui reste présent après votre achat.</p><div class="story-points"><div class="story-point"><svg class="icon"><use href="#i-check"/></svg><span>Des marques choisies pour durer</span></div><div class="story-point"><svg class="icon"><use href="#i-check"/></svg><span>Un conseil adapté à votre projet</span></div><div class="story-point"><svg class="icon"><use href="#i-check"/></svg><span>Disponibilité et réactivité</span></div><div class="story-point"><svg class="icon"><use href="#i-check"/></svg><span>Solutions pour tous les budgets</span></div></div><a class="button" href="#contact">Parler à un conseiller <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+      </div>
+    </section>
+
+    <section class="why">
+      <div class="container">
+        <div class="section-head"><div><span class="eyebrow">La différence DADDI</span><h2>Pourquoi nous choisir ?</h2></div><p>Une expérience simple, de la première question jusqu'à la mise en eau.</p></div>
+        <div class="why-grid">
+          <article class="why-card"><div class="why-icon"><svg class="icon"><use href="#i-star"/></svg></div><h3>Produits de qualité</h3><p>Des références fiables et testées pour durer.</p></article>
+          <article class="why-card"><div class="why-icon"><svg class="icon"><use href="#i-layers"/></svg></div><h3>Large choix</h3><p>Tout l'univers piscine et spa au même endroit.</p></article>
+          <article class="why-card"><div class="why-icon"><svg class="icon"><use href="#i-compass"/></svg></div><h3>Expertise</h3><p>Des conseils précis pour une décision sereine.</p></article>
+          <article class="why-card"><div class="why-icon"><svg class="icon"><use href="#i-truck"/></svg></div><h3>Service disponible</h3><p>Commande, retrait ou livraison selon votre besoin.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="brands"><div class="container brands-row"><span class="brands-label">Nos marques partenaires</span><span class="brand-name">ASTRALPOOL</span><span class="brand-name">HAYWARD</span><span class="brand-name">PENTAIR</span><span class="brand-name">ZODIAC</span><span class="brand-name">BAYROL</span></div></section>
+
+    <section class="gallery" id="galerie">
+      <div class="container">
+        <div class="section-head"><div><span class="eyebrow">Inspiration</span><h2>Le showroom en images</h2></div><p>Des produits bien choisis, dans des projets qui donnent envie de plonger.</p></div>
+        <div class="gallery-grid">
+          <div class="gallery-item" data-lightbox="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=1800&q=90"><img loading="lazy" src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=1100&q=85" alt="Piscine bleue moderne"><span>Piscines</span></div>
+          <div class="gallery-item" data-lightbox="https://images.unsplash.com/photo-1605152276897-4f618f831968?auto=format&fit=crop&w=1600&q=90"><img loading="lazy" src="https://images.unsplash.com/photo-1605152276897-4f618f831968?auto=format&fit=crop&w=800&q=85" alt="Aménagement piscine"><span>Projets</span></div>
+          <div class="gallery-item" data-lightbox="https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=1600&q=90"><img loading="lazy" src="https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=800&q=85" alt="Espace spa"><span>SPA</span></div>
+          <div class="gallery-item" data-lightbox="https://images.unsplash.com/photo-1560089000-7433a4ebbd64?auto=format&fit=crop&w=1600&q=90"><img loading="lazy" src="https://images.unsplash.com/photo-1560089000-7433a4ebbd64?auto=format&fit=crop&w=800&q=85" alt="Équipement piscine"><span>Équipements</span></div>
+          <div class="gallery-item" data-lightbox="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?auto=format&fit=crop&w=1600&q=90"><img loading="lazy" src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?auto=format&fit=crop&w=800&q=85" alt="Accessoires piscine"><span>Détails</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div><span class="eyebrow">Parlons de votre projet</span><h2>Votre prochaine baignade commence ici.</h2><p class="contact-intro">Une question produit, un besoin de conseil ou une demande de devis ? Notre équipe vous répond avec plaisir.</p><div class="contact-list"><a class="contact-item" href="tel:+213564021629"><svg class="icon"><use href="#i-phone"/></svg>0564 02 16 29</a><a class="contact-item" href="https://wa.me/213564021629" target="_blank" rel="noopener"><svg class="icon"><use href="#i-message"/></svg>WhatsApp — réponse rapide</a><span class="contact-item"><svg class="icon"><use href="#i-pin"/></svg>M3V4+GV7 Daddi piscine, N1, Gué de Constantine</span><span class="contact-item"><svg class="icon"><use href="#i-clock"/></svg>Sam — Jeu : 08:30 — 18:00</span></div></div>
+        <div class="contact-panel"><form class="contact-form" id="contactForm"><h3>Demander un devis</h3><input class="field" name="name" placeholder="Votre nom" required><input class="field" type="tel" name="phone" placeholder="Téléphone" required><textarea class="field" name="message" placeholder="Parlez-nous de votre projet..." required></textarea><button class="button aqua" type="submit">Envoyer ma demande <svg class="icon"><use href="#i-arrow"/></svg></button></form><a class="map-card" href="https://www.google.com/maps/search/?api=1&query=M3V4%2BGV7%20Daddi%20piscine%2C%20N1%2C%20Gu%C3%A9%20de%20Constantine" target="_blank" rel="noopener" aria-label="Ouvrir Google Maps"><span class="map-pin"><svg class="icon"><use href="#i-pin"/></svg></span><span class="map-caption">M3V4+GV7 Daddi piscine<br><strong>Ouvrir dans Google Maps →</strong></span></a></div>
+      </div>
+    </section>
+
+    <section class="admin-panel" id="adminPanel" hidden>
+      <div class="container">
+        <div class="admin-top">
+          <div><span class="eyebrow">Gestion du catalogue</span><h1>Espace administration</h1></div>
+          <div><p>Ajoutez ou supprimez des produits et modifiez leurs prix depuis votre espace sécurisé.</p><a class="button ghost" href="#accueil">Retour au showroom <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        </div>
+        <div class="admin-auth" id="adminAuthBox">
+          <h2>Connexion administrateur</h2>
+          <p>Utilisez le compte créé dans Firebase Authentication. Ne partagez jamais ce compte.</p>
+          <form id="adminLoginForm">
+            <input class="field" type="email" name="email" placeholder="Adresse e-mail" autocomplete="username" required>
+            <input class="field" type="password" name="password" placeholder="Mot de passe" autocomplete="current-password" required>
+            <button class="button aqua" type="submit" style="width:100%">Se connecter <svg class="icon"><use href="#i-lock"/></svg></button>
+          </form>
+          <p class="admin-auth-message" id="adminAuthMessage"></p>
+        </div>
+        <div id="adminDashboard" hidden>
+          <div class="admin-userbar"><span>Connecté en tant que <strong id="adminEmail"></strong></span><button id="adminLogout" type="button">Se déconnecter</button></div>
+          <div class="admin-layout">
+          <div class="admin-card">
+            <h2>Ajouter un produit</h2>
+            <form class="admin-form" id="adminForm">
+              <input class="field" name="name" placeholder="Nom du produit" required>
+              <input class="field" name="brand" placeholder="Marque" value="DADDI Select">
+              <select class="field" name="category" required><option value="">Catégorie</option><option>Pompes</option><option>Filtration</option><option>Traitement</option><option>Nettoyage</option><option>Éclairage</option><option>Chauffage</option><option>Accessoires</option><option>SPA</option></select>
+              <input class="field" name="reference" placeholder="Référence">
+              <input class="field" name="price" type="number" min="0" placeholder="Prix (DA)" required>
+              <input class="field" name="oldPrice" type="number" min="0" placeholder="Ancien prix (optionnel)">
+              <input class="field full" name="image" type="url" placeholder="URL de l'image (optionnel)">
+              <textarea class="field full" name="description" placeholder="Description courte" required></textarea>
+              <input class="field" name="stock" placeholder="Stock" value="En stock">
+              <input class="field" name="badge" placeholder="Badge (Nouveau, -20%...)">
+              <button class="button aqua full" type="submit">Ajouter au catalogue <svg class="icon"><use href="#i-plus"/></svg></button>
+            </form>
+            <p class="admin-note">Les produits sont enregistrés dans Firebase Realtime Database. Les règles Firebase doivent autoriser l’écriture uniquement aux UID présents dans le nœud <strong>admins</strong>.</p>
+          </div>
+          <div class="admin-card">
+            <h2>Produits du catalogue <span id="adminProductCount"></span></h2>
+            <div class="admin-list" id="adminProductList"></div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div><a class="brand" href="#accueil"><img class="brand-mark" src="Logo.jpg" alt="Logo DADDI Piscine et Spa"><span class="brand-copy"><strong>DADDI</strong><span>Piscine et Spa</span></span></a><p class="footer-description">Des solutions premium pour profiter pleinement de l'eau, chez vous ou dans vos projets professionnels.</p><div class="socials"><a class="social" href="https://www.facebook.com/share/1D3sCRmcb1/" target="_blank" rel="noopener" aria-label="Facebook">FB</a><a class="social" href="https://www.tiktok.com/@daddi.piscine?_r=1&_t=ZN-99axUIQ8xja" target="_blank" rel="noopener" aria-label="TikTok">TK</a></div></div>
+      <div><h4>Navigation</h4><div class="footer-links"><a href="#accueil">Accueil</a><a href="#produits">Produits</a><a href="#a-propos">À propos</a><a href="#galerie">Galerie</a></div></div>
+      <div><h4>Services</h4><div class="footer-links"><a href="#categories">Catégories</a><a href="#promotions">Promotions</a><a href="#contact">Demander un devis</a><a href="#contact">Nous trouver</a></div></div>
+      <div><h4>Besoin d'aide ?</h4><div class="footer-links"><a href="tel:+213564021629">0564 02 16 29</a><a href="mailto:contact@daddi-piscine.dz">contact@daddi-piscine.dz</a><a href="https://wa.me/213564021629" target="_blank">Écrire sur WhatsApp ↗</a><a href="#admin">Espace administration</a></div></div>
+    </div>
+    <div class="container copyright"><span>© 2026 DADDI PISCINE ET SPA — Tous droits réservés.</span><span>Qualité · Expertise · Service</span></div>
+  </footer>
+
+  <div class="floating-actions"><a class="floating whatsapp" href="https://wa.me/213564021629" target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp"><svg class="icon"><use href="#i-message"/></svg></a><a class="floating call" href="tel:+213564021629" aria-label="Appeler le showroom"><svg class="icon"><use href="#i-phone"/></svg></a></div>
+  <nav class="mobile-dock" aria-label="Navigation mobile"><a href="#accueil"><svg class="icon"><use href="#i-home"/></svg>Accueil</a><a href="#produits"><svg class="icon"><use href="#i-grid"/></svg>Produits</a><a href="#categories"><svg class="icon"><use href="#i-layers"/></svg>Catégories</a><button id="mobileCart"><svg class="icon"><use href="#i-bag"/></svg>Demande</button><a href="#contact"><svg class="icon"><use href="#i-phone"/></svg>Contact</a></nav>
+
+  <div class="overlay" id="productOverlay" role="dialog" aria-modal="true" aria-label="Détails du produit"><div class="modal product-modal"><button class="close" data-close="productOverlay" aria-label="Fermer"><svg class="icon"><use href="#i-close"/></svg></button><div class="modal-image"><img id="modalImage" alt=""></div><div class="modal-content"><span class="product-category" id="modalCategory"></span><h2 id="modalName"></h2><div class="price-line"><span class="price" id="modalPrice"></span><span class="old-price" id="modalOldPrice"></span></div><p class="product-description" id="modalDescription"></p><div class="specs" id="modalSpecs"></div><div class="quantity-row"><strong>Quantité</strong><div class="quantity"><button id="modalMinus" aria-label="Diminuer">−</button><span id="modalQuantity">1</span><button id="modalPlus" aria-label="Augmenter">+</button></div></div><div class="modal-buttons"><button class="button aqua" id="modalAdd">Ajouter à la demande <svg class="icon"><use href="#i-bag"/></svg></button><button class="button ghost" id="modalWhatsapp"><svg class="icon"><use href="#i-message"/></svg> Commander via WhatsApp</button></div></div></div></div>
+  <div class="overlay" id="cartOverlay" role="dialog" aria-modal="true" aria-label="Votre demande"><aside class="cart-drawer"><div class="drawer-head"><h2>Votre demande <span id="drawerCount">(0)</span></h2><button class="close" data-close="cartOverlay" aria-label="Fermer"><svg class="icon"><use href="#i-close"/></svg></button></div><div class="cart-items" id="cartItems"></div><div class="drawer-foot"><div class="total-line"><span>Total estimé</span><strong id="cartTotal">0 DA</strong></div><button class="button aqua" id="sendCart" style="width:100%">Envoyer la demande <svg class="icon"><use href="#i-message"/></svg></button></div></aside></div>
+  <div class="overlay" id="orderOverlay" role="dialog" aria-modal="true" aria-label="Formulaire de commande"><div class="modal order-modal"><button class="close" data-close="orderOverlay" aria-label="Fermer"><svg class="icon"><use href="#i-close"/></svg></button><h2>Finaliser votre demande</h2><p>Remplissez vos informations. Votre demande sera préparée puis envoyée directement sur WhatsApp.</p><form class="order-grid" id="orderForm"><input class="field" name="firstName" placeholder="Prénom" required><input class="field" name="lastName" placeholder="Nom" required><input class="field" name="phone" type="tel" placeholder="Numéro de téléphone" required><select class="field" name="wilaya" id="wilayaSelect" required><option value="">Choisir la wilaya</option></select><select class="field full" name="commune" id="communeSelect" required disabled><option value="">Choisir d'abord la wilaya</option></select><div class="delivery-choice"><input type="radio" id="deliveryOffice" name="delivery" value="Bureau / agence" required><label for="deliveryOffice"><svg class="icon"><use href="#i-building"/></svg> Retrait au bureau / agence</label><input type="radio" id="deliveryHome" name="delivery" value="Domicile"><label for="deliveryHome"><svg class="icon"><use href="#i-home"/></svg> Livraison à domicile</label></div><textarea class="field full" name="note" placeholder="Note supplémentaire (optionnel)"></textarea><div class="order-summary" id="orderSummary"></div><button class="button aqua full" type="submit">Envoyer ma demande sur WhatsApp <svg class="icon"><use href="#i-message"/></svg></button></form></div></div>
+  <div class="overlay lightbox" id="lightboxOverlay"><button class="close" data-close="lightboxOverlay" aria-label="Fermer"><svg class="icon"><use href="#i-close"/></svg></button><img id="lightboxImage" alt="Image du showroom"></div>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l1 12H4L5 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m9 6 9 6-9 6V6Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-2.9-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3Z"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h3l2 5-2 1.5a15 15 0 0 0 5.5 5.5L15 14l5 2v3c0 1-1 1-2 1C10.3 20 4 13.7 4 6c0-1 .3-2 1-2Z"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M20 11.5a7.5 7.5 0 0 1-8 7.5 8.6 8.6 0 0 1-3.4-.7L4 20l1.5-4.1A7.2 7.2 0 0 1 4 11.5 7.5 7.5 0 0 1 12 4a7.5 7.5 0 0 1 8 7.5Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m4 11 8-7 8 7v8H4z"/><path d="M9 19v-5h6v5"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><path d="M4 20h16M6 20V5h12v15M9 8h2M13 8h2M9 12h2M13 12h2M9 16h2M13 16h2"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></symbol>
+  </svg>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <script>
+    /* ========================= CONFIG ========================= */
+    const CONFIG = {
+      whatsapp: "213564021629",
+      showroomName: "DADDI Piscine et Spa",
+      address: "M3V4+GV7 Daddi piscine, N1, Gué de Constantine",
+      facebook: "https://www.facebook.com/share/1D3sCRmcb1/",
+      tiktok: "https://www.tiktok.com/@daddi.piscine?_r=1&_t=ZN-99axUIQ8xja",
+      locationsUrl: "https://raw.githubusercontent.com/islam-re/Algeria-wilayas/main/json/wilaya-commune/wilaya-commune.json",
+      currency: "DA"
+    };
+
+    /* ========================= FIREBASE ========================= */
+    const FIREBASE_CONFIG = {
+      apiKey: "AIzaSyBurMSnkS9dk0iJaotj6UU2pvnC9efGzSQ",
+      authDomain: "tour-expert-6c580.firebaseapp.com",
+      databaseURL: "https://tour-expert-6c580-default-rtdb.firebaseio.com",
+      projectId: "tour-expert-6c580",
+      storageBucket: "tour-expert-6c580.firebasestorage.app",
+      messagingSenderId: "233731555338",
+      appId: "1:233731555338:web:557bac09946c4fd5e35ff3",
+      measurementId: "G-YQ46NNR13B"
+    };
+    let firebaseReady = false;
+    let firebaseAuth = null;
+    let firebaseDatabase = null;
+    let firebaseProductsRef = null;
+    try {
+      if (window.firebase) {
+        firebase.initializeApp(FIREBASE_CONFIG);
+        firebaseAuth = firebase.auth();
+        firebaseDatabase = firebase.database();
+        firebaseProductsRef = firebaseDatabase.ref("products");
+        firebaseReady = true;
+      }
+    } catch (error) {
+      console.error("Firebase initialization failed", error);
+    }
+
+    /* ========================= PRODUCT DATA ========================= */
+    let products = [
+      { id: 1, name: "Pompe de filtration ProFlow 1.5 CV", category: "Pompes", brand: "Hayward", reference: "PF-1500", price: 68500, oldPrice: null, image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=85", description: "Une pompe silencieuse et endurante pour une circulation d'eau régulière.", stock: "En stock", badge: "Best seller", featured: true, popularity: 98, specs: [["Puissance", "1.5 CV"], ["Débit", "18 m³/h"], ["Garantie", "2 ans"], ["Usage", "Piscine familiale"]] },
+      { id: 2, name: "Filtre à sable ClearWater 600", category: "Filtration", brand: "AstralPool", reference: "CW-600", price: 79200, oldPrice: 87500, image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=85", description: "La filtration haute performance pour une eau claire et facile à entretenir.", stock: "En stock", badge: "-10%", featured: true, popularity: 92, specs: [["Cuve", "Polyéthylène"], ["Diamètre", "600 mm"], ["Vanne", "6 voies"], ["Débit", "14 m³/h"]] },
+      { id: 3, name: "Robot nettoyeur AquaBot X2", category: "Nettoyage", brand: "Zodiac", reference: "AB-X2", price: 124000, oldPrice: null, image: "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=800&q=85", description: "Un nettoyage autonome et précis du fond de votre piscine.", stock: "En stock", badge: "Nouveau", featured: true, popularity: 87, specs: [["Cycles", "2 programmes"], ["Surface", "Jusqu'à 80 m²"], ["Câble", "15 m"], ["Garantie", "2 ans"]] },
+      { id: 4, name: "Projecteur LED LumiBlue RGB", category: "Éclairage", brand: "Duraled", reference: "LB-RGB-18", price: 19800, oldPrice: null, image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=85", description: "Une lumière immersive et des couleurs élégantes pour vos soirées.", stock: "En stock", badge: null, featured: false, popularity: 79, specs: [["Technologie", "LED RGB"], ["Puissance", "18 W"], ["Niche", "Standard"], ["Contrôle", "Télécommande"]] },
+      { id: 5, name: "Pompe à chaleur Inverter 9 kW", category: "Chauffage", brand: "Fairland", reference: "HP-INV9", price: 289000, oldPrice: 319000, image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=85", description: "Prolongez la saison avec un chauffage performant, discret et économique.", stock: "Sur commande", badge: "-9%", featured: true, popularity: 90, specs: [["Puissance", "9 kW"], ["Volume", "30–45 m³"], ["COP", "Jusqu'à 15"], ["Garantie", "3 ans"]] },
+      { id: 6, name: "Skimmer grande meurtrière", category: "Accessoires", brand: "AstralPool", reference: "SK-STD", price: 7800, oldPrice: null, image: "https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?auto=format&fit=crop&w=800&q=85", description: "L'accessoire essentiel pour une surface d'eau toujours propre.", stock: "En stock", badge: null, featured: false, popularity: 71, specs: [["Matière", "ABS traité"], ["Coloris", "Blanc"], ["Type", "À sceller"], ["Débit", "5 m³/h"]] },
+      { id: 7, name: "Kit de traitement Eau Pure", category: "Traitement", brand: "Bayrol", reference: "EP-KIT-01", price: 14600, oldPrice: null, image: "https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=800&q=85", description: "Le kit pratique pour garder une eau équilibrée toute la saison.", stock: "En stock", badge: "Essentiel", featured: false, popularity: 83, specs: [["Contenu", "5 produits"], ["Type", "Entretien"], ["Usage", "Piscine"], ["Conseil", "Dosage inclus"]] },
+      { id: 8, name: "Échelle inox 3 marches", category: "Accessoires", brand: "Flexinox", reference: "EC-INOX3", price: 32500, oldPrice: null, image: "https://images.unsplash.com/photo-1560089000-7433a4ebbd64?auto=format&fit=crop&w=800&q=85", description: "Une entrée confortable et sûre, avec une finition inox durable.", stock: "En stock", badge: null, featured: false, popularity: 70, specs: [["Matière", "Inox 304"], ["Marches", "3"], ["Fixation", "À sceller"], ["Finition", "Polie"]] },
+      { id: 9, name: "Aspirateur manuel Jet Vac", category: "Nettoyage", brand: "Poolstar", reference: "JV-300", price: 11900, oldPrice: null, image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=85", description: "Un nettoyage rapide des petites impuretés, sans complication.", stock: "En stock", badge: null, featured: false, popularity: 68, specs: [["Type", "Manuel"], ["Brosse", "Incluse"], ["Manche", "Télescopique"], ["Connexion", "Standard"]] },
+      { id: 10, name: "Pack confort SPA — 4 accessoires", category: "SPA", brand: "DADDI Select", reference: "SPA-PACK4", price: 24900, oldPrice: 28900, image: "https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=800&q=85", description: "Tout le nécessaire pour rendre chaque moment dans votre spa encore meilleur.", stock: "En stock", badge: "-14%", featured: true, popularity: 86, specs: [["Contenu", "4 accessoires"], ["Usage", "SPA"], ["Matière", "Premium"], ["Idée", "Coffret cadeau"]] },
+      { id: 11, name: "Doseur automatique Compact", category: "Traitement", brand: "Bayrol", reference: "DA-COMPACT", price: 41800, oldPrice: null, image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=85", description: "Une diffusion régulière pour une gestion plus sereine du traitement.", stock: "Sur commande", badge: "Nouveau", featured: false, popularity: 74, specs: [["Dosage", "Automatique"], ["Installation", "By-pass"], ["Réglage", "Précis"], ["Usage", "Piscine"]] },
+      { id: 12, name: "Chlorinateur au sel 12 g/h", category: "Traitement", brand: "Aquarite", reference: "CH-12G", price: 89500, oldPrice: null, image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=800&q=85", description: "Une eau douce et agréable grâce à une désinfection au sel maîtrisée.", stock: "En stock", badge: null, featured: false, popularity: 80, specs: [["Production", "12 g/h"], ["Volume", "Jusqu'à 50 m³"], ["Cellule", "Titane"], ["Contrôle", "Digital"]] },
+      { id: 13, name: "Système filtration complet 10 m³/h", category: "Filtration", brand: "DAB", reference: "KIT-FIL10", price: 153000, oldPrice: null, image: "https://images.unsplash.com/photo-1584622781867-3c6d29e0c20d?auto=format&fit=crop&w=800&q=85", description: "Un ensemble cohérent pour équiper rapidement une piscine familiale.", stock: "Sur commande", badge: "Pack", featured: false, popularity: 76, specs: [["Débit", "10 m³/h"], ["Cuve", "500 mm"], ["Pompe", "0.75 CV"], ["Kit", "Complet"]] },
+      { id: 14, name: "Tuyau flottant renforcé 38 mm", category: "Accessoires", brand: "Dolphin", reference: "TF-38-12", price: 5900, oldPrice: null, image: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=800&q=85", description: "Le tuyau souple et résistant pour vos équipements de nettoyage.", stock: "En stock", badge: null, featured: false, popularity: 65, specs: [["Diamètre", "38 mm"], ["Longueur", "12 m"], ["Matière", "Renforcée"], ["Raccords", "Inclus"]] },
+      { id: 15, name: "Vanne multivoies 6 positions", category: "Filtration", brand: "Praher", reference: "VM-6-50", price: 15700, oldPrice: null, image: "https://images.unsplash.com/photo-1517960413843-0aee8e2b3285?auto=format&fit=crop&w=800&q=85", description: "Une commande précise pour piloter les différentes étapes de filtration.", stock: "En stock", badge: null, featured: false, popularity: 64, specs: [["Positions", "6"], ["Diamètre", "50 mm"], ["Montage", "Top"], ["Matière", "ABS"]] }
+    ];
+    const defaultProducts = products.slice();
+    let customProducts = [];
+    try { customProducts = JSON.parse(localStorage.getItem("daddi_custom_products") || "[]"); } catch { customProducts = []; }
+    products = [...defaultProducts, ...customProducts];
+    let firebaseProducts = [];
+    let adminUser = null;
+    let adminAuthorized = false;
+
+    const categories = [
+      ["Piscines", "Piscines", "https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=800&q=80", "i-grid"],
+      ["Pompes", "Pompes", "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80", "i-compass"],
+      ["Filtration", "Filtration", "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80", "i-layers"],
+      ["Traitement de l'eau", "Traitement", "https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=800&q=80", "i-check"],
+      ["Chauffage", "Chauffage", "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80", "i-star"],
+      ["Éclairage", "Éclairage", "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80", "i-star"],
+      ["Nettoyage", "Nettoyage", "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=800&q=80", "i-compass"],
+      ["Accessoires", "Accessoires", "https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?auto=format&fit=crop&w=800&q=80", "i-layers"],
+      ["SPA", "SPA", "https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=800&q=80", "i-star"],
+      ["Pièces & équipements", "Filtration", "https://images.unsplash.com/photo-1584622781867-3c6d29e0c20d?auto=format&fit=crop&w=800&q=80", "i-grid"]
+    ];
+
+    const state = { category: "Toutes", search: "", sort: "recent", cart: [], selected: null, quantity: 1, orderItems: null };
+    let algeriaLocations = [];
+    const $ = (selector) => document.querySelector(selector);
+    const formatPrice = (price) => `${new Intl.NumberFormat("fr-FR").format(price)} ${CONFIG.currency}`;
+    const icon = (name) => `<svg class="icon"><use href="#i-${name}"></use></svg>`;
+    const findProduct = (id) => products.find(product => String(product.id) === String(id));
+
+    async function loadAlgeriaLocations() {
+      try {
+        const response = await fetch(CONFIG.locationsUrl);
+        if (!response.ok) throw new Error("locations unavailable");
+        algeriaLocations = await response.json();
+      } catch {
+        algeriaLocations = [
+          {code:16, arabic:"الجزائر", ascii:"Alger", communes:[{arabic:"الجزائر",ascii:"Alger"},{arabic:"باب الزوار",ascii:"Bab Ezzouar"},{arabic:"الدار البيضاء",ascii:"Dar El Beida"},{arabic:"حسين داي",ascii:"Hussein Dey"},{arabic:"الرويبة",ascii:"Rouiba"},{arabic:"براقي",ascii:"Baraki"},{arabic:"بئر مراد رايس",ascii:"Bir Mourad Rais"},{arabic:"زرالدة",ascii:"Zeralda"}]},
+          {code:9, arabic:"البليدة", ascii:"Blida", communes:[{arabic:"البليدة",ascii:"Blida"},{arabic:"بوفاريك",ascii:"Boufarik"},{arabic:"المدية",ascii:"Meftah"},{arabic:"بوقرة",ascii:"Bougara"}]},
+          {code:31, arabic:"وهران", ascii:"Oran", communes:[{arabic:"وهران",ascii:"Oran"},{arabic:"بئر الجير",ascii:"Bir El Djir"},{arabic:"السانية",ascii:"Es Senia"},{arabic:"عين الترك",ascii:"Ain El Turk"}]},
+          {code:25, arabic:"قسنطينة", ascii:"Constantine", communes:[{arabic:"قسنطينة",ascii:"Constantine"},{arabic:"الخروب",ascii:"El Khroub"},{arabic:"حامة بوزيان",ascii:"Hamma Bouziane"}]}
+        ];
+      }
+      algeriaLocations.sort((a, b) => Number(a.code) - Number(b.code));
+      $("#wilayaSelect").innerHTML = `<option value="">Choisir la wilaya</option>` + algeriaLocations.map(w => `<option value="${w.code}">${String(w.code).padStart(2, "0")} — ${w.ascii} / ${w.arabic}</option>`).join("");
+      $("#wilayaSelect").disabled = false;
+    }
+
+    function startFirebaseProductSync() {
+      if (!firebaseReady || !firebaseProductsRef) return;
+      firebaseProductsRef.on("value", snapshot => {
+        const remote = snapshot.val() || {};
+        firebaseProducts = Object.entries(remote).map(([key, value]) => ({...value, id: key}));
+        products = [...defaultProducts, ...firebaseProducts];
+        renderCategories(); renderProducts(); updateCart();
+        if (adminAuthorized) renderAdminProducts();
+      }, error => console.error("Firebase products read failed", error));
+    }
+
+    function setAdminMessage(message, success = false) {
+      const element = $("#adminAuthMessage");
+      element.textContent = message;
+      element.classList.toggle("success", success);
+    }
+
+    async function verifyAdminAccess(user) {
+      if (!user || !firebaseReady) return false;
+      const snapshot = await firebaseDatabase.ref(`admins/${user.uid}`).once("value");
+      return snapshot.val() === true;
+    }
+
+    function showAdminDashboard(user) {
+      adminUser = user;
+      adminAuthorized = true;
+      $("#adminAuthBox").hidden = true;
+      $("#adminDashboard").hidden = false;
+      $("#adminEmail").textContent = user.email || "Administrateur";
+      renderAdminProducts();
+    }
+
+    function hideAdminDashboard() {
+      adminUser = null;
+      adminAuthorized = false;
+      $("#adminAuthBox").hidden = false;
+      $("#adminDashboard").hidden = true;
+      $("#adminEmail").textContent = "";
+    }
+
+    function startFirebaseAuth() {
+      if (!firebaseReady) {
+        setAdminMessage("Firebase n'est pas disponible. Ouvrez le site via http/https, pas directement en file://.");
+        return;
+      }
+      firebaseAuth.onAuthStateChanged(async user => {
+        if (!user) { hideAdminDashboard(); return; }
+        try {
+          const authorized = await verifyAdminAccess(user);
+          if (!authorized) {
+            await firebaseAuth.signOut();
+            hideAdminDashboard();
+            setAdminMessage("Ce compte n'a pas les droits administrateur.");
+            return;
+          }
+          showAdminDashboard(user);
+        } catch (error) {
+          console.error(error);
+          setAdminMessage("Impossible de vérifier les droits. Vérifiez les règles Firebase.");
+        }
+      });
+    }
+
+    function renderCommunes(code) {
+      const wilaya = algeriaLocations.find(item => String(item.code) === String(code));
+      const select = $("#communeSelect");
+      if (!wilaya) { select.innerHTML = `<option value="">Choisir d'abord la wilaya</option>`; select.disabled = true; return; }
+      select.innerHTML = `<option value="">Choisir la commune</option>` + wilaya.communes.slice().sort((a,b) => a.ascii.localeCompare(b.ascii)).map(c => `<option value="${c.ascii}">${c.ascii} / ${c.arabic}</option>`).join("");
+      select.disabled = false;
+    }
+
+    function renderOrderSummary() {
+      const items = state.orderItems || state.cart;
+      const total = items.reduce((sum, item) => sum + findProduct(item.id).price * item.quantity, 0);
+      $("#orderSummary").innerHTML = `<strong>Produits sélectionnés:</strong> ${items.map(item => { const p = findProduct(item.id); return `${p.name} × ${item.quantity}`; }).join(" · ")}<br><strong>Total estimé:</strong> ${formatPrice(total)}`;
+    }
+
+    function openOrderForm(items = state.cart) {
+      if (!items.length) return toast("Ajoutez au moins un produit");
+      state.orderItems = items.map(item => ({...item}));
+      renderOrderSummary();
+      closeOverlay("cartOverlay");
+      openOverlay("orderOverlay");
+    }
+
+    function renderCategories() {
+      $("#categoryGrid").innerHTML = categories.map(([name, filter, image, iconName]) => {
+        const count = filter === "Piscines" ? "Projet sur mesure" : `${products.filter(p => p.category === filter).length || "Nombreux"} produits`;
+        return `<button class="category-card" data-category="${filter}" style="--category-image:url('${image}')"><span class="category-icon">${icon(iconName)}</span><span class="category-bottom"><span><h3>${name}</h3><small>${count}</small></span><span class="category-arrow">${icon("arrow")}</span></span></button>`;
+      }).join("");
+      document.querySelectorAll(".category-card").forEach(card => card.addEventListener("click", () => {
+        state.category = card.dataset.category; renderFilters(); renderProducts(); document.querySelector("#produits").scrollIntoView({behavior:"smooth"});
+      }));
+    }
+
+    function renderFilters() {
+      const names = ["Toutes", "Pompes", "Filtration", "Traitement", "Nettoyage", "Éclairage", "Chauffage", "Accessoires", "SPA"];
+      $("#filterList").innerHTML = names.map(name => `<button class="filter-btn ${state.category === name ? "active" : ""}" data-filter="${name}">${name}</button>`).join("");
+      document.querySelectorAll(".filter-btn").forEach(button => button.addEventListener("click", () => { state.category = button.dataset.filter; renderFilters(); renderProducts(); }));
+    }
+
+    function visibleProducts() {
+      const query = state.search.trim().toLowerCase();
+      let list = products.filter(p => {
+        const matchesCategory = state.category === "Toutes" || p.category === state.category;
+        const haystack = `${p.name} ${p.category} ${p.brand} ${p.reference} ${p.description}`.toLowerCase();
+        return matchesCategory && (!query || haystack.includes(query));
+      });
+      if (state.sort === "asc") list.sort((a,b) => a.price - b.price);
+      if (state.sort === "desc") list.sort((a,b) => b.price - a.price);
+      if (state.sort === "popular") list.sort((a,b) => b.popularity - a.popularity);
+      return list;
+    }
+
+    function productCard(p) {
+      return `<article class="product-card">
+        <div class="product-image-wrap"><img loading="lazy" src="${p.image}" alt="${p.name}"><div class="product-badges">${p.badge ? `<span class="badge ${p.badge.startsWith("-") ? "sale" : ""}">${p.badge}</span>` : ""}</div><button class="quick-view" data-view="${p.id}" aria-label="Voir ${p.name}">${icon("search")}</button></div>
+        <div class="product-body"><span class="product-category">${p.category} · ${p.brand}</span><h3>${p.name}</h3><p class="product-description">${p.description}</p><div class="price-line"><span class="price">${formatPrice(p.price)}</span>${p.oldPrice ? `<span class="old-price">${formatPrice(p.oldPrice)}</span>` : ""}</div><div class="stock">${p.stock}</div><div class="product-actions"><button class="button" data-view="${p.id}">Voir le produit ${icon("arrow")}</button><button class="mini-cart" data-add="${p.id}" aria-label="Ajouter ${p.name}">${icon("bag")}</button></div></div>
+      </article>`;
+    }
+
+    function renderProducts() {
+      const list = visibleProducts();
+      $("#productsGrid").innerHTML = list.length ? list.map(productCard).join("") : `<div class="empty-state">${icon("search")}<strong>Aucun produit trouvé</strong>Essayez un autre mot-clé ou une autre catégorie.</div>`;
+      document.querySelectorAll("[data-view]").forEach(button => button.addEventListener("click", () => openProduct(button.dataset.view)));
+      document.querySelectorAll("[data-add]").forEach(button => button.addEventListener("click", () => addToCart(button.dataset.add, 1)));
+    }
+
+    function renderAdminProducts() {
+      const list = $("#adminProductList");
+      $("#adminProductCount").textContent = `(${products.length})`;
+      list.innerHTML = products.map(p => {
+        const remote = firebaseProducts.some(item => String(item.id) === String(p.id));
+        const local = customProducts.some(item => item.id === p.id);
+        return `<div class="admin-product"><img src="${p.image}" alt=""><div><h3>${p.name}</h3><p>${p.category} · ${p.reference || "Sans référence"}</p><strong>${formatPrice(p.price)}</strong></div>${remote ? `<button class="admin-delete" data-admin-delete="${p.id}">Supprimer</button>` : local ? `<span style="color:#9aaab8;font-size:.66rem">Ancien local</span>` : `<span style="color:#9aaab8;font-size:.66rem">Démo</span>`}</div>`;
+      }).join("");
+      list.querySelectorAll("[data-admin-delete]").forEach(button => button.addEventListener("click", () => {
+        const id = button.dataset.adminDelete;
+        if (!firebaseReady || !adminAuthorized) return toast("Connexion administrateur requise");
+        firebaseProductsRef.child(id).remove().then(() => toast("Produit supprimé")).catch(error => {
+          console.error(error); toast("Suppression refusée par les règles Firebase");
+        });
+      }));
+    }
+
+    function renderRoute() {
+      const isAdmin = location.hash.toLowerCase() === "#admin";
+      document.body.classList.toggle("admin-route", isAdmin);
+      $("#adminPanel").hidden = !isAdmin;
+      if (isAdmin) { renderAdminProducts(); window.scrollTo({top: 0, behavior: "smooth"}); }
+    }
+
+    function openProduct(id) {
+      const p = findProduct(id); if (!p) return;
+      state.selected = p; state.quantity = 1;
+      $("#modalImage").src = p.image; $("#modalImage").alt = p.name; $("#modalCategory").textContent = `${p.category} · ${p.brand} · Réf. ${p.reference}`;
+      $("#modalName").textContent = p.name; $("#modalPrice").textContent = formatPrice(p.price); $("#modalOldPrice").textContent = p.oldPrice ? formatPrice(p.oldPrice) : ""; $("#modalDescription").textContent = p.description; $("#modalQuantity").textContent = "1";
+      $("#modalSpecs").innerHTML = p.specs.map(([label, value]) => `<div class="spec"><span>${label}</span><strong>${value}</strong></div>`).join("");
+      openOverlay("productOverlay");
+    }
+
+    function addToCart(id, quantity) {
+      const found = state.cart.find(item => String(item.id) === String(id));
+      if (found) found.quantity += quantity; else state.cart.push({id, quantity});
+      updateCart(); toast("Produit ajouté à votre demande");
+    }
+
+    function updateCart() {
+      const count = state.cart.reduce((sum, item) => sum + item.quantity, 0);
+      const total = state.cart.reduce((sum, item) => { const p = findProduct(item.id); return sum + p.price * item.quantity; }, 0);
+      $("#cartCount").textContent = count; $("#drawerCount").textContent = `(${count})`; $("#cartTotal").textContent = formatPrice(total);
+      $("#cartItems").innerHTML = state.cart.length ? state.cart.map(item => {
+        const p = findProduct(item.id);
+        return `<div class="cart-item"><img src="${p.image}" alt="${p.name}"><div><h4>${p.name}</h4><p>${formatPrice(p.price)}</p><div class="cart-quantity"><button data-cart-minus="${p.id}">−</button><strong>${item.quantity}</strong><button data-cart-plus="${p.id}">+</button></div></div><button class="remove-item" data-remove="${p.id}">Supprimer</button></div>`;
+      }).join("") : `<div class="cart-empty">${icon("bag")}Votre demande est vide.<br>Ajoutez des produits pour préparer votre commande.</div>`;
+      document.querySelectorAll("[data-cart-minus]").forEach(btn => btn.addEventListener("click", () => changeCart(btn.dataset.cartMinus, -1)));
+      document.querySelectorAll("[data-cart-plus]").forEach(btn => btn.addEventListener("click", () => changeCart(btn.dataset.cartPlus, 1)));
+      document.querySelectorAll("[data-remove]").forEach(btn => btn.addEventListener("click", () => { state.cart = state.cart.filter(item => String(item.id) !== String(btn.dataset.remove)); updateCart(); }));
+    }
+
+    function changeCart(id, amount) {
+      const item = state.cart.find(i => String(i.id) === String(id)); if (!item) return;
+      item.quantity += amount; if (item.quantity < 1) state.cart = state.cart.filter(i => i.id !== id); updateCart();
+    }
+
+    function whatsappMessage(items = state.cart) {
+      const lines = items.map(item => { const p = findProduct(item.id); return `- ${p.name} | Réf: ${p.reference} | Quantité: ${item.quantity} | ${formatPrice(p.price * item.quantity)}`; });
+      return `Bonjour, je suis intéressé par les produits suivants chez ${CONFIG.showroomName} :\n\n${lines.join("\n")}\n\nTotal estimé: ${formatPrice(items.reduce((sum, item) => sum + findProduct(item.id).price * item.quantity, 0))}\n\nMerci.`;
+    }
+
+    function openOverlay(id) { $("#" + id).classList.add("open"); document.body.classList.add("modal-open"); }
+    function closeOverlay(id) { $("#" + id).classList.remove("open"); if (!document.querySelector(".overlay.open")) document.body.classList.remove("modal-open"); }
+    function toast(message) { const el = document.createElement("div"); el.textContent = message; el.style.cssText = "position:fixed;z-index:90;left:50%;bottom:25px;transform:translateX(-50%);padding:12px 17px;border-radius:999px;color:#fff;background:#071a35;box-shadow:0 12px 30px rgba(0,0,0,.2);font:700 12px DM Sans,sans-serif"; document.body.appendChild(el); setTimeout(() => el.remove(), 2200); }
+
+    renderCategories(); renderFilters(); renderProducts(); updateCart(); loadAlgeriaLocations(); renderRoute();
+    $("#searchInput").addEventListener("input", e => { state.search = e.target.value; renderProducts(); });
+    $("#sortSelect").addEventListener("change", e => { state.sort = e.target.value; renderProducts(); });
+    $("#headerSearch").addEventListener("click", () => { document.querySelector("#produits").scrollIntoView({behavior:"smooth"}); setTimeout(() => $("#searchInput").focus(), 500); });
+    $("#cartButton").addEventListener("click", () => openOverlay("cartOverlay")); $("#mobileCart").addEventListener("click", () => openOverlay("cartOverlay"));
+    $("#menuToggle").addEventListener("click", () => $("#mainNav").classList.toggle("open"));
+    document.querySelectorAll(".main-nav a").forEach(a => a.addEventListener("click", () => $("#mainNav").classList.remove("open")));
+    document.querySelectorAll("[data-close]").forEach(button => button.addEventListener("click", () => closeOverlay(button.dataset.close)));
+    document.querySelectorAll(".overlay").forEach(overlay => overlay.addEventListener("click", e => { if (e.target === overlay) closeOverlay(overlay.id); }));
+    document.addEventListener("keydown", e => { if (e.key === "Escape") document.querySelectorAll(".overlay.open").forEach(overlay => closeOverlay(overlay.id)); });
+    window.addEventListener("hashchange", renderRoute);
+    $("#wilayaSelect").addEventListener("change", e => renderCommunes(e.target.value));
+    $("#modalMinus").addEventListener("click", () => { state.quantity = Math.max(1, state.quantity - 1); $("#modalQuantity").textContent = state.quantity; });
+    $("#modalPlus").addEventListener("click", () => { state.quantity++; $("#modalQuantity").textContent = state.quantity; });
+    $("#modalAdd").addEventListener("click", () => { addToCart(state.selected.id, state.quantity); closeOverlay("productOverlay"); });
+    $("#modalWhatsapp").addEventListener("click", () => { addToCart(state.selected.id, state.quantity); closeOverlay("productOverlay"); openOrderForm(); });
+    $("#sendCart").addEventListener("click", () => openOrderForm());
+    $("#adminForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const data = new FormData(e.currentTarget);
+      const id = Date.now();
+      const product = {
+        id, name: data.get("name").trim(), category: data.get("category"), brand: data.get("brand").trim() || "DADDI Select",
+        reference: data.get("reference").trim() || `DADDI-${id}`, price: Number(data.get("price")), oldPrice: Number(data.get("oldPrice")) || null,
+        image: data.get("image").trim() || "https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=800&q=85",
+        description: data.get("description").trim(), stock: data.get("stock").trim() || "En stock", badge: data.get("badge").trim() || null,
+        featured: false, popularity: 50, specs: [["Marque", data.get("brand").trim() || "DADDI Select"], ["Référence", data.get("reference").trim() || `DADDI-${id}`], ["Disponibilité", data.get("stock").trim() || "En stock"], ["Catégorie", data.get("category")]]
+      };
+      if (!firebaseReady || !adminAuthorized) return toast("Connexion administrateur requise");
+      firebaseProductsRef.push(product).then(() => {
+        e.currentTarget.reset(); e.currentTarget.querySelector('[name="brand"]').value = "DADDI Select"; e.currentTarget.querySelector('[name="stock"]').value = "En stock";
+        toast("Produit ajouté à Firebase");
+      }).catch(error => {
+        console.error(error); toast("Ajout refusé par les règles Firebase");
+      });
+    });
+    $("#adminLoginForm").addEventListener("submit", async e => {
+      e.preventDefault();
+      if (!firebaseReady) return setAdminMessage("Firebase غير متاح. افتح الموقع عبر رابط http أو https.");
+      const data = new FormData(e.currentTarget);
+      setAdminMessage("جاري التحقق...");
+      try {
+        await firebaseAuth.signInWithEmailAndPassword(String(data.get("email")).trim(), String(data.get("password")));
+        e.currentTarget.reset();
+      } catch (error) {
+        console.error(error);
+        setAdminMessage("البريد أو كلمة السر غير صحيحة، أو لم يتم تفعيل Email/Password في Firebase.");
+      }
+    });
+    $("#adminLogout").addEventListener("click", () => {
+      if (firebaseReady) firebaseAuth.signOut();
+    });
+    $("#orderForm").addEventListener("submit", async e => {
+      e.preventDefault();
+      const data = new FormData(e.currentTarget);
+      const items = state.orderItems || state.cart;
+      const message = `Bonjour ${data.get("firstName")} ${data.get("lastName")},\n\nDemande de commande chez ${CONFIG.showroomName}:\n\n${whatsappMessage(items)}\n\nTéléphone: ${data.get("phone")}\nWilaya: ${data.get("wilaya")}\nCommune: ${data.get("commune")}\nMode de livraison: ${data.get("delivery")}\nNote: ${data.get("note") || "Aucune"}\n\nAdresse du showroom: ${CONFIG.address}`;
+      const order = {
+        firstName: data.get("firstName"), lastName: data.get("lastName"), phone: data.get("phone"),
+        wilaya: data.get("wilaya"), commune: data.get("commune"), delivery: data.get("delivery"),
+        note: data.get("note") || "", items, total: items.reduce((sum, item) => sum + findProduct(item.id).price * item.quantity, 0),
+        status: "new", createdAt: firebaseReady ? firebase.database.ServerValue.TIMESTAMP : Date.now()
+      };
+      const whatsappWindow = window.open("about:blank", "_blank");
+      try {
+        if (firebaseReady) await firebaseDatabase.ref("orders").push(order);
+      } catch (error) {
+        console.error("Order database write failed", error);
+        toast("تعذر حفظ الطلب في Firebase، سيتم فتح WhatsApp فقط");
+      }
+      const whatsappUrl = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(message)}`;
+      if (whatsappWindow) whatsappWindow.location.href = whatsappUrl; else window.location.href = whatsappUrl;
+      e.currentTarget.reset(); $("#communeSelect").innerHTML = `<option value="">Choisir d'abord la wilaya</option>`; $("#communeSelect").disabled = true; closeOverlay("orderOverlay");
+    });
+    document.querySelectorAll(".gallery-item").forEach(item => item.addEventListener("click", () => { $("#lightboxImage").src = item.dataset.lightbox; openOverlay("lightboxOverlay"); }));
+    $("#contactForm").addEventListener("submit", e => { e.preventDefault(); const data = new FormData(e.currentTarget); const text = `Bonjour, je souhaite demander un devis.\n\nNom: ${data.get("name")}\nTéléphone: ${data.get("phone")}\nProjet: ${data.get("message")}`; window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`, "_blank"); e.currentTarget.reset(); });
+    startFirebaseProductSync();
+    startFirebaseAuth();
+    window.addEventListener("scroll", () => $("#siteHeader").classList.toggle("scrolled", window.scrollY > 15), {passive:true});
+  </script>
+</body>
+</html>
